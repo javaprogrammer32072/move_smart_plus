@@ -105,4 +105,14 @@ class Booking extends Model
     {
         return $this->belongsTo(City::class, 'destination_city_id');
     }
+    public function inventoryItems()
+    {
+        return $this->belongsToMany(
+            InventoryItem::class,
+            'booking_inventory',
+            'booking_id',
+            'inventory_item_id'
+        )->withPivot('quantity')->with('category');
+    }
 }
+

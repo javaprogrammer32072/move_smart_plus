@@ -35,25 +35,25 @@
                             <li class="current dropdown">
                                 <a href="/">Home</a>
                             </li>
-                            <li class="dropdown"><a href="index-3.html#">Pages</a>
+                            <li class="dropdown"><a href="#">Pages</a>
                                 <ul>
-                                    <li><a href="page-about.html">About Us</a></li>
-                                    <li><a href="page-faq.html">Faq</a></li>
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Faq</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a href="/services">Our Services</a>
+                            <li class="dropdown"><a href="{{ url('/services') }}">Our Services</a>
                             </li>
-                            <li class="dropdown"><a href="/projects">Projects</a>
+                            <li class="dropdown"><a href="#">Projects</a>
                                
                             </li>
-                            <li class="dropdown"><a href="/blogs">Blog</a>
+                            <li class="dropdown"><a href="#">Blog</a>
                             </li>
                             <li><a href="/contact-us">Contact Us</a></li>
                         </ul>
                     </nav>
                 </div>
                 <div class="right-box">
-                    <a class="theme-btn btn-style-five" href="/contact-us">
+                    <a class="theme-btn btn-style-five" href="/">
                         <span class="btn-title">Book Now</span>
                     </a>
                     <!--Mobile Navigation Toggler-->
@@ -74,7 +74,7 @@
         <nav class="menu-box">
             <div class="upper-box">
                 <div class="nav-logo">
-                    <a href="index.html"><img src="{{ public_url('images/smart-move-plus.png')}}" alt="" /></a>
+                    <a href="#"><img src="{{ public_url('images/smart-move-plus.png')}}" alt="" /></a>
                 </div>
                 <div class="close-btn"><i class="icon fa fa-times"></i></div>
             </div>
@@ -94,16 +94,16 @@
             </ul>
             <ul class="social-links">
                 <li>
-                    <a href="index-3.html#"><i class="icon fab fa-twitter"></i></a>
+                    <a href="#"><i class="icon fab fa-twitter"></i></a>
                 </li>
                 <li>
-                    <a href="index-3.html#"><i class="icon fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="icon fab fa-facebook-f"></i></a>
                 </li>
                 <li>
-                    <a href="index-3.html#"><i class="icon fab fa-pinterest-p"></i></a>
+                    <a href="#"><i class="icon fab fa-pinterest-p"></i></a>
                 </li>
                 <li>
-                    <a href="index-3.html#"><i class="icon fab fa-vimeo-v"></i></a>
+                    <a href="#"><i class="icon fab fa-vimeo-v"></i></a>
                 </li>
             </ul>
         </nav>
@@ -116,7 +116,7 @@
         <button class="close-search"><span class="fa fa-times"></span></button>
 
         <div class="search-inner">
-            <form method="post" action="index.html">
+            <form method="post" action="#">
                 <div class="form-group">
                     <input type="search" name="search-field" value="" placeholder="Search..." required="" />
                     <button type="submit"><i class="fa fa-search"></i></button>
@@ -132,7 +132,7 @@
             <div class="inner-container">
                 <!--Logo-->
                 <div class="logo">
-                    <a href="index.html"><img src="{{ public_url('images/smart-move-plus.png')}}" alt=""></a>
+                    <a href="#"><img src="{{ public_url('images/smart-move-plus.png')}}" alt=""></a>
                 </div>
 
                 <!--Right Col-->
@@ -155,11 +155,11 @@
                     </div>
                 </div>
 
-                <a href="tel:+8801750050088" class="header-phone_box">
+                <a href="tel:+917070784447" class="header-phone_box">
                     <span class="icon"><i aria-hidden="true" class="fas fa-phone-alt"></i></span>
                     <span class="info">
                         Call Anytime
-                        <strong>+8801750050088</strong>
+                        <strong>+91 7070784447</strong>
                     </span>
                 </a>
             </div>

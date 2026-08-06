@@ -5,70 +5,62 @@
   <meta charset="utf-8" />
   <!-- Character Encoding -->
     <meta charset="UTF-8">
-    <title>@yield('title', 'Home Page')</title>
-    <!-- Viewport -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Meta Description -->
-    <meta name="description"
-          content="MoveSmartPlus provides trusted packers and movers services across India including house shifting, office relocation, bike transport, car transport, packing, loading, unloading, and storage. Get instant free quotes today.">
-
-    <!-- Keywords (Not used by Google, but harmless) -->
-    <meta name="keywords"
-          content="packers and movers, house shifting, office relocation, bike transport, car transport, movers and packers, relocation services, household shifting, moving company India">
-
-    <!-- Robots -->
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-
-    <!-- Author -->
     <meta name="author" content="MoveSmartPlus">
-
-    <!-- Canonical -->
-    <link rel="canonical" href="https://movesmartplus.com/">
-
-    <!-- Theme -->
     <meta name="theme-color" content="#0F52BA">
-
-    <!-- Language -->
     <meta http-equiv="content-language" content="en">
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:title"
-          content="MoveSmartPlus | Trusted Packers and Movers in India">
-    <meta property="og:description"
-          content="Book professional packers and movers, house shifting, office relocation, bike transport and car transport services across India.">
     <meta property="og:url" content="https://movesmartplus.com/">
     <meta property="og:site_name" content="MoveSmartPlus">
-    <meta property="og:image" content="https://movesmartplus.com/public/images/og-image.jpg">
+    <meta property="og:image" content="{{public_url('images/smart-move-plus.png')}}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_IN">
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title"
-          content="MoveSmartPlus | Packers and Movers">
-    <meta name="twitter:description"
-          content="Professional relocation services across India.">
-    <meta name="twitter:image"
-          content="https://movesmartplus.com/public/images/move-smart-plus.jpg">
+   
+      <title>{{ $seo['title'] ?? config('app.name') }}</title>
 
-    <!-- Mobile -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+      <meta name="description" content="{{ $seo['description'] ?? 'MoveSmartPlus provides trusted packers and movers services across India including house shifting, office relocation, bike transport, car transport, packing, loading, unloading, and storage. Get instant free quotes today.' }}">
 
-    <!-- Manifest -->
-    <link rel="manifest" href="/manifest.json">
+      <meta name="keywords" content="{{ $seo['keywords'] ?? 'packers and movers, house shifting, office relocation, bike transport, car transport, movers and packers, relocation services, household shifting, moving company India' }}">
 
-    <!-- DNS Prefetch -->
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+      <meta name="robots" content="{{ $seo['robots'] ?? 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' }}">
 
-    <!-- Preconnect -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link rel="canonical" href="{{ $seo['canonical'] ?? url()->current() }}">
+
+      <meta property="og:type" content="website">
+
+      <meta property="og:title" content="{{ $seo['og_title'] ?? 'MoveSmartPlus | Trusted Packers and Movers in India' }}">
+
+      <meta property="og:description" content="{{ $seo['og_description'] ?? 'Book professional packers and movers, house shifting, office relocation, bike transport and car transport services across India.' }}">
+
+      <meta property="og:image" content="{{ $seo['og_image'] ?? asset('images/logo.png') }}">
+
+      <meta property="og:url" content="{{ $seo['og_url'] ?? url()->current() }}">
+
+      <meta property="og:site_name" content="MoveSmartPlus">
+
+      <meta name="twitter:card" content="summary_large_image">
+
+      <meta name="twitter:title" content="{{ $seo['twitter_title'] ?? 'MoveSmartPlus | Packers and Movers'}}">
+
+      <meta name="twitter:description" content="{{ $seo['twitter_description'] ?? 'Professional relocation services across India.' }}">
+
+      <meta name="twitter:image" content="{{ $seo['twitter_image'] ?? public_url('images/smart-move-plus.png') }}">
+      <!-- Mobile -->
+      <meta name="mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+      <!-- Manifest -->
+      <link rel="manifest" href="/manifest.json">
+
+      <!-- DNS Prefetch -->
+      <link rel="dns-prefetch" href="//fonts.googleapis.com">
+      <link rel="dns-prefetch" href="//fonts.gstatic.com">
+
+      <!-- Preconnect -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
   <!-- Stylesheets -->
   <link href="{{ public_url('css/bootstrap.min.css') }}" rel="stylesheet" />
@@ -78,7 +70,6 @@
 
   <!-- Responsive -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="application/ld+json">
     {
       "@context":"https://schema.org",

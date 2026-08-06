@@ -7,6 +7,8 @@ use App\Services\BookingService;
 use App\Models\InventoryCategory;
 use App\Http\Requests\BookingInventoryRequest;
 use App\Models\Booking;
+use App\Mail\BookingConfirmationMail;
+use Illuminate\Support\Facades\Mail;
 
 class BookingController extends Controller
 {
@@ -46,17 +48,13 @@ class BookingController extends Controller
             'categories'
         ));
     }
-    public function saveInventory(
-        BookingInventoryRequest $request,
-        Booking $booking
-    ) {
+    public function saveInventory(BookingInventoryRequest $request, Booking $booking) {
         // print_r($booking);
         // print_r($request->all());die;
         $this->bookingService->saveInventory($booking, $request);
-
-        return redirect()
-            ->route('booking.success', $booking->id)
-            ->with('success', 'Inventory saved successfully.');
+        $booking->load(['pickupCity', 'destinationCity', 'inventoryItems.category']);
+        Mail::to('info@movesmartplus.com')->send(new BookingConfirmationMail($booking));
+        return redirect()->route('booking.success', $booking->id)->with('success', 'Inventory saved successfully.');
     }
     public function success(Booking $booking)
     {

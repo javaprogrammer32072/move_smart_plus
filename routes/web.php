@@ -18,6 +18,7 @@ use App\Http\Controllers\BookingController;
 
 Route::get("/",[HomeController::class,'index']);
 Route::get("/contact-us",[HomeController::class,'contactUs']);
+Route::get("/services",[HomeController::class,'services']);
 Route::post('/contact', [ContactController::class, 'store']) ->name('contact.store');
 
 
@@ -27,6 +28,5 @@ Route::post('/booking/store',[BookingController::class, 'store'])->name('booking
 Route::get('/booking/{booking}/inventory',[BookingController::class, 'inventory'])->name('booking.inventory');
 Route::post('/booking/{booking}/inventory', [BookingController::class, 'saveInventory'])->name('booking.inventory.store');
 
-Route::get('/booking/{booking}/success',
-    [BookingController::class,'success'])
-    ->name('booking.success');
+Route::get('/booking/{booking}/success',[BookingController::class,'success'])->name('booking.success');
+Route::get('/services/home-shifting',[HomeController::class,'homeShifting']);

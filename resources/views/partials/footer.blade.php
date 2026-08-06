@@ -14,7 +14,7 @@
                         </div>
                         <form class="check-box">
                             <input type="checkbox" id="agree" name="agree" value="agree">
-                            <label for="agree"> I agree to the <a href="index.html">privacy policy.</a></label>
+                            <label for="agree"> I agree to the <a href="#">privacy policy.</a></label>
                         </form>
                     </div>
                 </div>
@@ -24,11 +24,11 @@
                         <div class="h5 widget-title">Company</div>
                         <div class="widget-content">
                             <ul class="user-links">
-                                <li><a href="index.html#/">About</a></li>
-                                <li><a href="index.html#/">Our Mission</a></li>
-                                <li><a href="index.html#/">Our Blogs</a></li>
-                                <li><a href="index.html#/">Help Center</a></li>
-                                <li><a href="index.html#/">Contact Us</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Our Mission</a></li>
+                                <li><a href="#">Our Blogs</a></li>
+                                <li><a href="#">Help Center</a></li>
+                                <li><a href="#">Contact Us</a></li>
                             </ul>
                         </div>
                     </div>
@@ -39,11 +39,11 @@
                         <div class="h5 widget-title">Service</div>
                         <div class="widget-content">
                             <ul class="user-links">
-                                <li><a href="index.html#/">Residential Moving</a></li>
-                                <li><a href="index.html#/">Furniture Assembly</a></li>
-                                <li><a href="index.html#/">Local Moving</a></li>
-                                <li><a href="index.html#/">Long-Distance Moving</a></li>
-                                <li><a href="index.html#/">Packing & Unpacking</a></li>
+                                <li><a href="#">Residential Moving</a></li>
+                                <li><a href="#">Furniture Assembly</a></li>
+                                <li><a href="#">Local Moving</a></li>
+                                <li><a href="#">Long-Distance Moving</a></li>
+                                <li><a href="#">Packing & Unpacking</a></li>
                             </ul>
                         </div>
                     </div>
@@ -53,14 +53,12 @@
                     <div class="footer-widget contact-widget">
                         <div class="widget-content">
                             <ul class="social-info style-one">
-                                <li>+629 555-0129</li>
-                                <li><a href="https://html.kodesolution.com/cdn-cgi/l/email-protection"
-                                        class="__cf_email__"
-                                        data-cfemail="5d393830321d38253c302d3138733e3230">[email&#160;protected]</a>
+                                <li>+91 7070784447</li>
+                                <li><a href="mailto:info@movesmartplus.com">info@movesmartplus.com</a>
                                 </li>
                             </ul>
                             <ul class="social-info">
-                                <li>1901 Thornridge Cir. Shiloh <br>Hawaii 81063</li>
+                                <li>Bhagalpur. Bihar <br>Tilkamanghi chowk</li>
                             </ul>
                         </div>
                     </div>

@@ -25,16 +25,16 @@
             <div class="shape-2 bounce-y"><img src="{{ public_url('images/icons/shape-8.png') }}" alt=""></div>
             <ul class="social-info">
                 <li>
-                    <a href="index-3.html#">fb</a>
+                    <a href="#">fb</a>
                 </li>
                 <li>
-                    <a href="index-3.html#">tw</a>
+                    <a href="#">tw</a>
                 </li>
                 <li>
-                    <a href="index-3.html#">in</a>
+                    <a href="#">in</a>
                 </li>
                 <li>
-                    <a href="index-3.html#">yt</a>
+                    <a href="#">yt</a>
                 </li>
             </ul>
             <div class="outer-container">
@@ -46,7 +46,7 @@
                             <div class="h1 banner-title">Wherever your business moves <span>we’re there</span></div>
                             <div class="text">At Movingza we are dedicated to making every move simple, smooth, and
                                 stress-free. With years of experience in the moving and logistics</div>
-                            <a href="page-about.html" class="theme-btn btn-style-three mb-5">Discover More<i
+                            <a href="#" class="theme-btn btn-style-three mb-5">Discover More<i
                                     class="fa-light fa-arrow-up-right"></i></a>
                         </div>
                     </div>
@@ -293,7 +293,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="page-about.html" class="theme-btn btn-style-one">More About Us<i
+                        <a href="#" class="theme-btn btn-style-one">More About Us<i
                                 class="fa-light fa-arrow-up-right"></i></a>
                     </div>
                 </div>
@@ -315,7 +315,7 @@
                         <div class="service-block-three swiper-slide">
                             <div class="inner-block">
                                 <div class="image">
-                                    <a href="page-service-details.html">
+                                    <a href="#">
                                         <img src="{{ public_url('images/resource/service3-1.jpg') }}" alt="blog">
                                         <img src="{{ public_url('images/resource/service3-1.jpg') }}" alt="blog">
                                     </a>
@@ -324,7 +324,7 @@
                                     <div class="inner-box">
                                         <div class="icon"><i class="flaticon-home-delivery"></i></div>
                                         <div class="content">
-                                            <div class="h4 title"><a href="page-service-details.html">Residential Moving</a>
+                                            <div class="h4 title"><a href="#">Residential Moving</a>
                                             </div>
                                             <div class="text">On the other hand, we denounce with righteous indignation
                                             </div>
@@ -337,7 +337,7 @@
                         <div class="service-block-three swiper-slide">
                             <div class="inner-block">
                                 <div class="image">
-                                    <a href="page-service-details.html">
+                                    <a href="#">
                                         <img src="{{ public_url('images/resource/service3-2.jpg') }}" alt="blog">
                                         <img src="{{ public_url('images/resource/service3-2.jpg') }}" alt="blog">
                                     </a>
@@ -346,7 +346,7 @@
                                     <div class="inner-box">
                                         <div class="icon"><i class="flaticon-delivery-man-2"></i></div>
                                         <div class="content">
-                                            <div class="h4 title"><a href="page-service-details.html">Commercial Moving</a>
+                                            <div class="h4 title"><a href="#">Commercial Moving</a>
                                             </div>
                                             <div class="text">On the other hand, we denounce with righteous indignation
                                             </div>
@@ -359,7 +359,7 @@
                         <div class="service-block-three swiper-slide">
                             <div class="inner-block">
                                 <div class="image">
-                                    <a href="page-service-details.html">
+                                    <a href="#">
                                         <img src="{{ public_url('images/resource/service3-3.jpg') }}" alt="blog">
                                         <img src="{{ public_url('images/resource/service3-3.jpg') }}" alt="blog">
                                     </a>
@@ -368,7 +368,7 @@
                                     <div class="inner-box">
                                         <div class="icon"><i class="flaticon-delivery"></i></div>
                                         <div class="content">
-                                            <div class="h4 title"><a href="page-service-details.html">Furniture
+                                            <div class="h4 title"><a href="#">Furniture
                                                     Disassembly</a></div>
                                             <div class="text">On the other hand, we denounce with righteous indignation
                                             </div>
@@ -381,7 +381,7 @@
                         <div class="service-block-three swiper-slide">
                             <div class="inner-block">
                                 <div class="image">
-                                    <a href="page-service-details.html">
+                                    <a href="#">
                                         <img src="{{ public_url('images/resource/service3-3.jpg') }}" alt="blog">
                                         <img src="{{ public_url('images/resource/service3-3.jpg') }}" alt="blog">
                                     </a>
@@ -390,7 +390,7 @@
                                     <div class="inner-box">
                                         <div class="icon"><i class="flaticon-cargo"></i></div>
                                         <div class="content">
-                                            <div class="h4 title"><a href="page-service-details.html">Local Moving</a></div>
+                                            <div class="h4 title"><a href="#">Local Moving</a></div>
                                             <div class="text">On the other hand, we denounce with righteous indignation
                                             </div>
                                         </div>
@@ -402,7 +402,7 @@
                         <div class="service-block-three swiper-slide">
                             <div class="inner-block">
                                 <div class="image">
-                                    <a href="page-service-details.html">
+                                    <a href="#">
                                         <img src="{{ public_url('images/resource/service3-2.jpg') }}" alt="blog">
                                         <img src="{{ public_url('images/resource/service3-2.jpg') }}" alt="blog">
                                     </a>
@@ -411,7 +411,7 @@
                                     <div class="inner-box">
                                         <div class="icon"><i class="flaticon-logistic"></i></div>
                                         <div class="content">
-                                            <div class="h4 title"><a href="page-service-details.html">Commercial Moving</a>
+                                            <div class="h4 title"><a href="#">Commercial Moving</a>
                                             </div>
                                             <div class="text">On the other hand, we denounce with righteous indignation
                                             </div>
@@ -424,7 +424,7 @@
                         <div class="service-block-three swiper-slide">
                             <div class="inner-block">
                                 <div class="image">
-                                    <a href="page-service-details.html">
+                                    <a href="#">
                                         <img src="{{ public_url('images/resource/service3-3.jpg') }}" alt="blog">
                                         <img src="{{ public_url('images/resource/service3-3.jpg') }}" alt="blog">
                                     </a>
@@ -433,7 +433,7 @@
                                     <div class="inner-box">
                                         <div class="icon"><i class="flaticon-team"></i></div>
                                         <div class="content">
-                                            <div class="h4 title"><a href="page-service-details.html">Furniture
+                                            <div class="h4 title"><a href="#">Furniture
                                                     Disassembly</a></div>
                                             <div class="text">On the other hand, we denounce with righteous indignation
                                             </div>
@@ -596,12 +596,12 @@
                                             <span class="text">Moving</span>
                                             <span class="text">Residential</span>
                                         </div>
-                                        <div class="h3 title"><a href="page-projects.html">Complete Residential Home
+                                        <div class="h3 title"><a href="#">Complete Residential Home
                                                 Move</a></div>
                                         <div class="text">It is a long established fact that a reader will be distracted by
                                             the readable</div>
                                         <div class="btn-box">
-                                            <a class="btn-arrow" href="page-project-details.html">View Project <i
+                                            <a class="btn-arrow" href="#">View Project <i
                                                     class="fa fa-arrow-right"></i></a>
                                         </div>
                                     </div>
@@ -617,12 +617,12 @@
                                             <span class="text">Moving</span>
                                             <span class="text">Residential</span>
                                         </div>
-                                        <div class="h3 title"><a href="page-projects.html">Full Office Relocation
+                                        <div class="h3 title"><a href="#">Full Office Relocation
                                                 Project</a></div>
                                         <div class="text">It is a long established fact that a reader will be distracted by
                                             the readable</div>
                                         <div class="btn-box">
-                                            <a class="btn-arrow" href="page-project-details.html">View Project <i
+                                            <a class="btn-arrow" href="#">View Project <i
                                                     class="fa fa-arrow-right"></i></a>
                                         </div>
                                     </div>
@@ -638,12 +638,12 @@
                                             <span class="text">Moving</span>
                                             <span class="text">Residential</span>
                                         </div>
-                                        <div class="h3 title"><a href="page-projects.html">Long-Distance Household Move</a>
+                                        <div class="h3 title"><a href="#">Long-Distance Household Move</a>
                                         </div>
                                         <div class="text">It is a long established fact that a reader will be distracted by
                                             the readable</div>
                                         <div class="btn-box">
-                                            <a class="btn-arrow" href="page-project-details.html">View Project <i
+                                            <a class="btn-arrow" href="#">View Project <i
                                                     class="fa fa-arrow-right"></i></a>
                                         </div>
                                     </div>
@@ -659,12 +659,12 @@
                                             <span class="text">Moving</span>
                                             <span class="text">Residential</span>
                                         </div>
-                                        <div class="h3 title"><a href="page-projects.html">Apartment-to-House Moving
+                                        <div class="h3 title"><a href="#">Apartment-to-House Moving
                                                 Service</a></div>
                                         <div class="text">It is a long established fact that a reader will be distracted by
                                             the readable</div>
                                         <div class="btn-box">
-                                            <a class="btn-arrow" href="page-project-details.html">View Project <i
+                                            <a class="btn-arrow" href="#">View Project <i
                                                     class="fa fa-arrow-right"></i></a>
                                         </div>
                                     </div>
@@ -680,12 +680,12 @@
                                             <span class="text">Moving</span>
                                             <span class="text">Residential</span>
                                         </div>
-                                        <div class="h3 title"><a href="page-projects.html">Complete Residential Home
+                                        <div class="h3 title"><a href="#">Complete Residential Home
                                                 Move</a></div>
                                         <div class="text">It is a long established fact that a reader will be distracted by
                                             the readable</div>
                                         <div class="btn-box">
-                                            <a class="btn-arrow" href="page-project-details.html">View Project <i
+                                            <a class="btn-arrow" href="#">View Project <i
                                                     class="fa fa-arrow-right"></i></a>
                                         </div>
                                     </div>
@@ -701,12 +701,12 @@
                                             <span class="text">Moving</span>
                                             <span class="text">Residential</span>
                                         </div>
-                                        <div class="h3 title"><a href="page-projects.html">Full Office Relocation
+                                        <div class="h3 title"><a href="#">Full Office Relocation
                                                 Project</a></div>
                                         <div class="text">It is a long established fact that a reader will be distracted by
                                             the readable</div>
                                         <div class="btn-box">
-                                            <a class="btn-arrow" href="page-project-details.html">View Project <i
+                                            <a class="btn-arrow" href="#">View Project <i
                                                     class="fa fa-arrow-right"></i></a>
                                         </div>
                                     </div>
@@ -722,12 +722,12 @@
                                             <span class="text">Moving</span>
                                             <span class="text">Residential</span>
                                         </div>
-                                        <div class="h3 title"><a href="page-projects.html">Long-Distance Household Move</a>
+                                        <div class="h3 title"><a href="#">Long-Distance Household Move</a>
                                         </div>
                                         <div class="text">It is a long established fact that a reader will be distracted by
                                             the readable</div>
                                         <div class="btn-box">
-                                            <a class="btn-arrow" href="page-project-details.html">View Project <i
+                                            <a class="btn-arrow" href="#">View Project <i
                                                     class="fa fa-arrow-right"></i></a>
                                         </div>
                                     </div>
@@ -743,12 +743,12 @@
                                             <span class="text">Moving</span>
                                             <span class="text">Residential</span>
                                         </div>
-                                        <div class="h3 title"><a href="page-projects.html">Apartment-to-House Moving
+                                        <div class="h3 title"><a href="#">Apartment-to-House Moving
                                                 Service</a></div>
                                         <div class="text">It is a long established fact that a reader will be distracted by
                                             the readable</div>
                                         <div class="btn-box">
-                                            <a class="btn-arrow" href="page-project-details.html">View Project <i
+                                            <a class="btn-arrow" href="#">View Project <i
                                                     class="fa fa-arrow-right"></i></a>
                                         </div>
                                     </div>
@@ -791,7 +791,7 @@
                             <div class="inner-block">
                                 <div class="icon"><i class="flaticon-shipment"></i></div>
                                 <div class="content">
-                                    <div class="h4 title"><a href="page-service-details.html">Transparent & Fair Pricing</a>
+                                    <div class="h4 title"><a href="#">Transparent & Fair Pricing</a>
                                     </div>
                                     <div class="text">Our experienced movers handle every item with care, ensuring a smooth
                                     </div>
@@ -802,7 +802,7 @@
                             <div class="inner-block active">
                                 <div class="icon"><i class="flaticon-delivery-man-1"></i></div>
                                 <div class="content">
-                                    <div class="h4 title"><a href="page-service-details.html">Professional & Experienced
+                                    <div class="h4 title"><a href="#">Professional & Experienced
                                             Team</a></div>
                                     <div class="text">Our experienced movers handle every item with care, ensuring a smooth
                                     </div>
@@ -813,7 +813,7 @@
                             <div class="inner-block">
                                 <div class="icon"><i class="flaticon-delivery-man"></i></div>
                                 <div class="content">
-                                    <div class="h4 title"><a href="page-service-details.html">Fast & On-Time Service</a>
+                                    <div class="h4 title"><a href="#">Fast & On-Time Service</a>
                                     </div>
                                     <div class="text">Our experienced movers handle every item with care, ensuring a smooth
                                     </div>
@@ -824,7 +824,7 @@
                             <div class="inner-block">
                                 <div class="icon"><i class="flaticon-cash-on-delivery"></i></div>
                                 <div class="content">
-                                    <div class="h4 title"><a href="page-service-details.html">Fully Insured & Secure</a>
+                                    <div class="h4 title"><a href="#">Fully Insured & Secure</a>
                                     </div>
                                     <div class="text">Our experienced movers handle every item with care, ensuring a smooth
                                     </div>
@@ -855,7 +855,7 @@
                             <div class="content-box">
                                 <div class="inner-box">
                                     <div class="h3 title">Have Any Question on Your Minds?</div>
-                                    <a href="page-contact.html" class="theme-btn btn-style-five">Get In Touch</a>
+                                    <a href="#" class="theme-btn btn-style-five">Get In Touch</a>
                                 </div>
                             </div>
                         </div>
@@ -1027,7 +1027,7 @@
                     <div class="h6 sub-title">Our Blog</div>
                     <div class="h2 title">Check out latest <br>news <span>update & articles</span></div>
                 </div>
-                <a href="news-grid.html" class="theme-btn btn-style-three">See All Article<i
+                <a href="#" class="theme-btn btn-style-three">See All Article<i
                         class="fa-light fa-arrow-up-right"></i></a>
             </div>
             <div class="row gx-4">
@@ -1035,7 +1035,7 @@
                     <div class="inner-block">
                         <div class="image-box">
                             <div class="image">
-                                <a href="news-details.html">
+                                <a href="#">
                                     <img src="{{ public_url('images/resource/blog1-1.jpg') }}" alt="blog">
                                     <img src="{{ public_url('images/resource/blog1-1.jpg') }}" alt="blog">
                                 </a>
@@ -1046,9 +1046,9 @@
                                 <div class="category">Moving</div>
                                 <div class="date">20 Dec, 2025</div>
                             </div>
-                            <div class="h3 title"><a href="news-details.html">How to Pack Fragile Items the Right Way</a>
+                            <div class="h3 title"><a href="#">How to Pack Fragile Items the Right Way</a>
                             </div>
-                            <a class="btn-read-more" href="news-details.html"><i class="fa-regular fa-arrow-right"></i> Read
+                            <a class="btn-read-more" href="#"><i class="fa-regular fa-arrow-right"></i> Read
                                 More </a>
                         </div>
                     </div>
@@ -1057,7 +1057,7 @@
                     <div class="inner-block">
                         <div class="image-box">
                             <div class="image">
-                                <a href="news-details.html">
+                                <a href="#">
                                     <img src="{{ public_url('images/resource/blog1-2.jpg') }}" alt="blog">
                                     <img src="{{ public_url('images/resource/blog1-2.jpg') }}" alt="blog">
                                 </a>
@@ -1068,9 +1068,9 @@
                                 <div class="category">Moving</div>
                                 <div class="date">20 Dec, 2025</div>
                             </div>
-                            <div class="h3 title"><a href="news-details.html">The Ultimate Checklist Before You Move</a>
+                            <div class="h3 title"><a href="#">The Ultimate Checklist Before You Move</a>
                             </div>
-                            <a class="btn-read-more" href="news-details.html"><i class="fa-regular fa-arrow-right"></i> Read
+                            <a class="btn-read-more" href="#"><i class="fa-regular fa-arrow-right"></i> Read
                                 More </a>
                         </div>
                     </div>
@@ -1079,7 +1079,7 @@
                     <div class="inner-block">
                         <div class="image-box">
                             <div class="image">
-                                <a href="news-details.html">
+                                <a href="#">
                                     <img src="{{ public_url('images/resource/blog1-3.jpg') }}" alt="blog">
                                     <img src="{{ public_url('images/resource/blog1-3.jpg') }}" alt="blog">
                                 </a>
@@ -1090,9 +1090,9 @@
                                 <div class="category">Moving</div>
                                 <div class="date">20 Dec, 2025</div>
                             </div>
-                            <div class="h3 title"><a href="news-details.html">The Best Packing Materials for Safe Moving</a>
+                            <div class="h3 title"><a href="#">The Best Packing Materials for Safe Moving</a>
                             </div>
-                            <a class="btn-read-more" href="news-details.html"><i class="fa-regular fa-arrow-right"></i> Read
+                            <a class="btn-read-more" href="#"><i class="fa-regular fa-arrow-right"></i> Read
                                 More </a>
                         </div>
                     </div>

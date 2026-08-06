@@ -60,10 +60,7 @@ class BookingService
 
         return $prefix . str_pad($number, 4, '0', STR_PAD_LEFT);
     }
-    public function saveInventory(
-        Booking $booking,
-        BookingInventoryRequest $request
-    ) {
+    public function saveInventory(Booking $booking,BookingInventoryRequest $request) {
 
         DB::transaction(function () use ($booking, $request) {
 
