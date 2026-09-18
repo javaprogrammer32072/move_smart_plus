@@ -8,6 +8,7 @@ use App\Http\Controllers\HelpCenterController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\TrackBookingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,3 +59,65 @@ Route::get('/services/warehouse-storage',[HomeController::class,'warehouseStorag
 Route::get('/services/local-moving',[HomeController::class,'localMoving'])->name('services.local-moving');
 Route::get('/services/car-transportation',[HomeController::class,'carTransportation'])->name('services.car-transportation');
 Route::get('/services/bike-transportation',[HomeController::class,'bikeTransportation'])->name('services.bike-transportation');
+
+// Public booking tracking — no login required.
+Route::get('/track-booking', [TrackBookingController::class, 'show'])->name('track-booking');
+
+/*
+|--------------------------------------------------------------------------
+| Admin Panel
+|--------------------------------------------------------------------------
+|
+| Everything below is new and additive: new routes only, nothing above
+| this point changes. A single hardcoded admin account (see config/admin.php
+| and .env) — no registration, no separate user table.
+|
+*/
+
+Route::prefix('admin')->name('admin.')->group(function () {
+
+    Route::get('/login', [\App\Http\Controllers\Admin\AuthController::class, 'showLogin'])->name('login');
+
+    // Only the actual login attempt is rate-limited, not viewing the page.
+    Route::post('/login', [\App\Http\Controllers\Admin\AuthController::class, 'login'])
+        ->middleware('throttle:5,15')
+        ->name('login.attempt');
+
+    Route::post('/logout', [\App\Http\Controllers\Admin\AuthController::class, 'logout'])->name('logout');
+
+    Route::middleware('admin.auth')->group(function () {
+
+        Route::get('/', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
+
+        Route::get('/bookings', [\App\Http\Controllers\Admin\BookingController::class, 'index'])->name('bookings.index');
+        Route::get('/bookings/{booking}', [\App\Http\Controllers\Admin\BookingController::class, 'show'])->name('bookings.show');
+        Route::patch('/bookings/{booking}/status', [\App\Http\Controllers\Admin\BookingController::class, 'updateStatus'])->name('bookings.status');
+
+        Route::get('/cities', [\App\Http\Controllers\Admin\CityController::class, 'index'])->name('cities.index');
+        Route::post('/cities', [\App\Http\Controllers\Admin\CityController::class, 'store'])->name('cities.store');
+        Route::put('/cities/{city}', [\App\Http\Controllers\Admin\CityController::class, 'update'])->name('cities.update');
+        Route::delete('/cities/{city}', [\App\Http\Controllers\Admin\CityController::class, 'destroy'])->name('cities.destroy');
+
+        Route::get('/newsletter', [\App\Http\Controllers\Admin\NewsletterController::class, 'index'])->name('newsletter.index');
+        Route::get('/newsletter/export', [\App\Http\Controllers\Admin\NewsletterController::class, 'export'])->name('newsletter.export');
+
+        Route::get('/contact', [\App\Http\Controllers\Admin\ContactController::class, 'index'])->name('contact.index');
+        Route::get('/contact/{contact}', [\App\Http\Controllers\Admin\ContactController::class, 'show'])->name('contact.show');
+        Route::patch('/contact/{contact}/status', [\App\Http\Controllers\Admin\ContactController::class, 'updateStatus'])->name('contact.status');
+
+        Route::get('/analytics', [\App\Http\Controllers\Admin\AnalyticsController::class, 'index'])->name('analytics.index');
+        Route::get('/traffic', [\App\Http\Controllers\Admin\TrafficController::class, 'index'])->name('traffic.index');
+        Route::get('/activity', [\App\Http\Controllers\Admin\ActivityLogController::class, 'index'])->name('activity.index');
+
+        Route::get('/settings', [\App\Http\Controllers\Admin\SettingsController::class, 'index'])->name('settings.index');
+        Route::put('/settings/password', [\App\Http\Controllers\Admin\SettingsController::class, 'updatePassword'])->name('settings.password');
+    });
+
+    // Anything else under /admin — styled 404, not the framework default.
+    // An explicit wildcard (not Route::fallback(), whose behavior inside a
+    // prefixed group isn't something to gamble with site-wide 404s over)
+    // matched only when nothing above it already matched.
+    Route::middleware('admin.auth')->get('/{any}', function () {
+        return response()->view('admin.404', [], 404);
+    })->where('any', '.*');
+});

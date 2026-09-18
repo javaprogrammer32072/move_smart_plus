@@ -19,7 +19,8 @@ class Contact extends Model
         'message',
         'ip_address',
         'user_agent',
-        'is_read'
+        'is_read',
+        'status'
     ];
 
     protected $casts = [
