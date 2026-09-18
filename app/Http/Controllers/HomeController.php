@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\City;
+use App\Support\Blog;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -12,8 +13,9 @@ class HomeController extends Controller
     {
         // Mail::to('info@movesmartplus.com')->send(new CustomerNotificationMail());
         $cities = City::where('status', 1)->orderBy('city_name') ->get();
+        $blogs = Blog::all();
         $seo = [];
-        return view("home-page", compact('cities','seo'));
+        return view("home-page", compact('cities','blogs','seo'));
     }
     public function contactUs(Request $request, Response $response)
     {

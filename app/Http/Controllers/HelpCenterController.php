@@ -22,6 +22,18 @@ class HelpCenterController extends Controller
             ->get()
             ->groupBy('category');
 
+        // Fall back to the full FAQ list when a search returns no matches,
+        // so the page still has something useful to show.
+        $noResults = $search !== '' && $faqs->isEmpty();
+
+        if ($noResults) {
+            $faqs = Faq::active()
+                ->orderBy('category')
+                ->orderBy('sort_order')
+                ->get()
+                ->groupBy('category');
+        }
+
         $seo = [
             'title' => 'Help Center | MoveSmartPlus Support & FAQs',
 
@@ -48,6 +60,6 @@ class HelpCenterController extends Controller
             'twitter_image' => public_url('images/smart-move-plus.png'),
         ];
 
-        return view('pages.help-center', compact('seo', 'faqs', 'search'));
+        return view('pages.help-center', compact('seo', 'faqs', 'search', 'noResults'));
     }
 }

@@ -1,4 +1,4 @@
-@props(['title', 'crumb' => null])
+@props(['title', 'crumb' => null, 'parent' => null, 'parentUrl' => null])
 
 <section class="page-title"
     style="background-image: url(images/resource/page-title.png);opacity: 0.85;background-color: var(--theme-color-lighter);">
@@ -7,6 +7,9 @@
             <div class="h1 title">{{ $title }}</div>
             <ul class="page-breadcrumb">
                 <li><a href="{{ url('') }}">Home</a></li>
+                @if ($parent)
+                    <li><a href="{{ $parentUrl ?? '#' }}">{{ $parent }}</a></li>
+                @endif
                 <li>{{ $crumb ?? $title }}</li>
             </ul>
         </div>
@@ -17,9 +20,10 @@
 {!! json_encode([
     '@context' => 'https://schema.org',
     '@type' => 'BreadcrumbList',
-    'itemListElement' => [
+    'itemListElement' => array_values(array_filter([
         ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home', 'item' => url('')],
-        ['@type' => 'ListItem', 'position' => 2, 'name' => $crumb ?? $title, 'item' => url()->current()],
-    ],
+        $parent ? ['@type' => 'ListItem', 'position' => 2, 'name' => $parent, 'item' => $parentUrl ?? url()->current()] : null,
+        ['@type' => 'ListItem', 'position' => $parent ? 3 : 2, 'name' => $crumb ?? $title, 'item' => url()->current()],
+    ])),
 ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
 </script>

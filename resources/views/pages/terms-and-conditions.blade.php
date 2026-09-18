@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <x-page-title title="Terms &amp; Conditions" crumb="Terms &amp; Conditions" />
+    <x-page-title title="Terms & Conditions" crumb="Terms & Conditions" />
 
     <section class="services-details pt-120 pb-120">
         <div class="container">

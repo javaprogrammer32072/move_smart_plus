@@ -23,7 +23,7 @@
                             <ul class="user-links">
                                 <li><a href="{{ route('about') }}">About</a></li>
                                 <li><a href="{{ route('mission') }}">Our Mission</a></li>
-                                <li><a href="#">Our Blogs</a></li>
+                                <li><a href="{{ route('blogs.index') }}">Our Blogs</a></li>
                                 <li><a href="{{ route('help-center') }}">Help Center</a></li>
                                 <li><a href="{{ route('contact-us') }}">Contact Us</a></li>
                             </ul>

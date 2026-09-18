@@ -1027,76 +1027,13 @@
                     <div class="h6 sub-title">Our Blog</div>
                     <div class="h2 title">Check out latest <br>news <span>update & articles</span></div>
                 </div>
-                <a href="#" class="theme-btn btn-style-three">See All Article<i
+                <a href="{{ route('blogs.index') }}" class="theme-btn btn-style-three">See All Article<i
                         class="fa-light fa-arrow-up-right"></i></a>
             </div>
             <div class="row gx-4">
-                <div class="blog-block col-xl-4 col-md-6">
-                    <div class="inner-block">
-                        <div class="image-box">
-                            <div class="image">
-                                <a href="#">
-                                    <img src="{{ public_url('images/resource/blog1-1.jpg') }}" alt="blog">
-                                    <img src="{{ public_url('images/resource/blog1-1.jpg') }}" alt="blog">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="content-box">
-                            <div class="post-meta">
-                                <div class="category">Moving</div>
-                                <div class="date">20 Dec, 2025</div>
-                            </div>
-                            <div class="h3 title"><a href="#">How to Pack Fragile Items the Right Way</a>
-                            </div>
-                            <a class="btn-read-more" href="#"><i class="fa-regular fa-arrow-right"></i> Read
-                                More </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="blog-block col-xl-4 col-md-6">
-                    <div class="inner-block">
-                        <div class="image-box">
-                            <div class="image">
-                                <a href="#">
-                                    <img src="{{ public_url('images/resource/blog1-2.jpg') }}" alt="blog">
-                                    <img src="{{ public_url('images/resource/blog1-2.jpg') }}" alt="blog">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="content-box">
-                            <div class="post-meta">
-                                <div class="category">Moving</div>
-                                <div class="date">20 Dec, 2025</div>
-                            </div>
-                            <div class="h3 title"><a href="#">The Ultimate Checklist Before You Move</a>
-                            </div>
-                            <a class="btn-read-more" href="#"><i class="fa-regular fa-arrow-right"></i> Read
-                                More </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="blog-block col-xl-4 col-md-6">
-                    <div class="inner-block">
-                        <div class="image-box">
-                            <div class="image">
-                                <a href="#">
-                                    <img src="{{ public_url('images/resource/blog1-3.jpg') }}" alt="blog">
-                                    <img src="{{ public_url('images/resource/blog1-3.jpg') }}" alt="blog">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="content-box">
-                            <div class="post-meta">
-                                <div class="category">Moving</div>
-                                <div class="date">20 Dec, 2025</div>
-                            </div>
-                            <div class="h3 title"><a href="#">The Best Packing Materials for Safe Moving</a>
-                            </div>
-                            <a class="btn-read-more" href="#"><i class="fa-regular fa-arrow-right"></i> Read
-                                More </a>
-                        </div>
-                    </div>
-                </div>
+                @foreach ($blogs as $blog)
+                    <x-blog-card :blog="$blog" />
+                @endforeach
             </div>
         </div>
     </section>

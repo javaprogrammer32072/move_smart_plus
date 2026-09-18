@@ -27,7 +27,15 @@
 
       <link rel="canonical" href="{{ $seo['canonical'] ?? url()->current() }}">
 
-      <meta property="og:type" content="website">
+      <meta property="og:type" content="{{ $seo['og_type'] ?? 'website' }}">
+
+      @if (!empty($seo['article_published_time']))
+        <meta property="article:published_time" content="{{ $seo['article_published_time'] }}">
+      @endif
+
+      @if (!empty($seo['article_modified_time']))
+        <meta property="article:modified_time" content="{{ $seo['article_modified_time'] }}">
+      @endif
 
       <meta property="og:title" content="{{ $seo['og_title'] ?? 'MoveSmartPlus | Trusted Packers and Movers in India' }}">
 
