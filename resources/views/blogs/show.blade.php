@@ -2,7 +2,8 @@
 
 @section('content')
 
-    <x-page-title title="Move Smart Plus Blog" :crumb="$blog['title']" parent="Blog" :parent-url="route('blogs.index')" />
+    <x-page-title title="Move Smart Plus Blog" :crumb="$blog['title']" parent="Blog" :parent-url="route('blogs.index')"
+        :as-h1="false" />
 
     <section class="blog-details pt-120 pb-120">
         <div class="container">

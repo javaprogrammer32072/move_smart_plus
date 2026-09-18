@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\City;
 use App\Support\Blog;
+use App\Support\ServiceZone;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -14,91 +15,118 @@ class HomeController extends Controller
         // Mail::to('info@movesmartplus.com')->send(new CustomerNotificationMail());
         $cities = City::where('status', 1)->orderBy('city_name') ->get();
         $blogs = Blog::all();
-        $seo = [];
-        return view("home-page", compact('cities','blogs','seo'));
+        $stateZones = ServiceZone::states();
+
+        $seo = [
+            'title' => 'Packers and Movers in Bihar & Jharkhand | Move Smart Plus',
+
+            'description' => 'Move Smart Plus offers professional packers and movers services across Bihar and Jharkhand, including home shifting, office relocation, packing, local moving, car and bike transportation, and warehouse storage.',
+
+            'keywords' => 'packers and movers Bihar, packers and movers Jharkhand, home shifting Bihar, office relocation Jharkhand, local shifting, intercity relocation, packing services, car transportation, bike transportation, Move Smart Plus',
+
+            'canonical' => url('/'),
+
+            'robots' => 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+
+            'og_title' => 'Packers and Movers in Bihar & Jharkhand | Move Smart Plus',
+
+            'og_description' => 'Professional home shifting, office relocation, packing, local moving, and vehicle transportation services across Bihar and Jharkhand.',
+
+            'og_image' => public_url('images/services/page/home-shift.png'),
+
+            'og_url' => url('/'),
+
+            'twitter_title' => 'Packers and Movers in Bihar & Jharkhand | Move Smart Plus',
+
+            'twitter_description' => 'Professional home shifting, office relocation and vehicle transportation across Bihar and Jharkhand.',
+
+            'twitter_image' => public_url('images/services/page/home-shift.png'),
+        ];
+
+        return view("home-page", compact('cities','blogs','stateZones','seo'));
     }
     public function contactUs(Request $request, Response $response)
     {
         $seo = [
-            'title' => 'Contact MoveSmartPlus | Get Free Packers and Movers Quote',
+            'title' => 'Contact MoveSmartPlus | Packers and Movers in Bihar & Jharkhand',
 
-            'description' => 'Contact MoveSmartPlus for professional home shifting, office relocation, vehicle transportation, packing, unpacking, and storage services across India. Get a free moving quote, expert assistance, and reliable customer support today.',
+            'description' => 'Contact MoveSmartPlus for home shifting, office relocation, packing and vehicle transportation across Bihar and Jharkhand. Get a free moving quote and speak with our team directly.',
 
-            'keywords' => 'contact MoveSmartPlus, contact packers and movers, moving company contact, get moving quote, free relocation quote, home shifting contact, office relocation contact, packers and movers customer support, moving services India, relocation assistance',
+            'keywords' => 'contact MoveSmartPlus, contact packers and movers Bihar, moving company contact, get moving quote Bihar Jharkhand, home shifting contact, office relocation contact',
 
             'canonical' => url()->current(),
 
             'robots' => 'index, follow',
 
-            'og_title' => 'Contact MoveSmartPlus | Trusted Packers and Movers',
+            'og_title' => 'Contact MoveSmartPlus | Packers and Movers in Bihar & Jharkhand',
 
-            'og_description' => 'Have questions about your move? Contact MoveSmartPlus for expert guidance, free quotations, and reliable home shifting, office relocation, and vehicle transportation services across India.',
+            'og_description' => 'Have questions about your move? Contact MoveSmartPlus for home shifting, office relocation and vehicle transportation across Bihar and Jharkhand.',
 
-            // 'og_image' => asset('images/seo/contact-banner.jpg'),
+            'og_image' => public_url('images/services/page/home-shift.png'),
 
             'og_url' => url()->current(),
 
             'twitter_title' => 'Contact MoveSmartPlus | Get a Free Moving Quote',
 
-            'twitter_description' => 'Reach out to MoveSmartPlus for trusted packers and movers services, free relocation quotes, and professional moving assistance across India.',
+            'twitter_description' => 'Reach out to MoveSmartPlus for packers and movers services across Bihar and Jharkhand.',
 
-            // 'twitter_image' => asset('images/seo/contact-banner.jpg'),
+            'twitter_image' => public_url('images/services/page/home-shift.png'),
         ];
         return view("contact-us",compact('seo'));
     }
     public function services(Request $request, Response $response)
     {
         $seo = [
-            'title' => 'Packers and Movers Services in India | MoveSmartPlus',
+            'title' => 'Packers and Movers Services in Bihar & Jharkhand | MoveSmartPlus',
 
-            'description' => 'Explore MoveSmartPlus professional packers and movers services including home shifting, office relocation, local moving, car transportation, bike transportation, packing, loading, unloading, and warehouse storage across India.',
+            'description' => 'Explore MoveSmartPlus services across Bihar and Jharkhand: home shifting, office relocation, local moving, car and bike transportation, packing, and warehouse storage.',
 
-            'keywords' => 'packers and movers services, home shifting, office relocation, local moving, warehouse storage, car transportation, bike transportation, packing services, loading unloading, furniture moving, relocation company, movers and packers India',
+            'keywords' => 'packers and movers services Bihar, home shifting Bihar, office relocation Jharkhand, local moving, warehouse storage, car transportation Bihar, bike transportation Jharkhand, packing services',
 
             'canonical' => url()->current(),
 
             'robots' => 'index, follow',
 
-            'og_title' => 'Professional Packers and Movers Services | MoveSmartPlus',
+            'og_title' => 'Packers and Movers Services in Bihar & Jharkhand | MoveSmartPlus',
 
-            'og_description' => 'Professional home shifting, office relocation, vehicle transport, warehouse storage and packing services across India.',
+            'og_description' => 'Home shifting, office relocation, vehicle transport, warehouse storage and packing services across Bihar and Jharkhand.',
 
-            'og_image' => asset('images/seo/services-banner.jpg'),
+            'og_image' => public_url('images/services/page/home-shift.png'),
 
             'og_url' => url()->current(),
 
-            'twitter_title' => 'Packers and Movers Services | MoveSmartPlus',
+            'twitter_title' => 'Packers and Movers Services in Bihar & Jharkhand | MoveSmartPlus',
 
-            'twitter_description' => 'Trusted home shifting, office relocation and vehicle transport services across India.',
+            'twitter_description' => 'Trusted home shifting, office relocation and vehicle transport services across Bihar and Jharkhand.',
 
-            'twitter_image' => public_url('images/seo/services-banner.jpg'),
+            'twitter_image' => public_url('images/services/page/home-shift.png'),
         ];
         return view("services.service",compact('seo'));
     }
     public function homeShifting(Request $request, Response $response)
     {
         $seo = [
-            'title' => 'Home Shifting Services in India | House Packers and Movers | MoveSmartPlus',
+            'title' => 'Home Shifting Services in Bihar & Jharkhand | MoveSmartPlus',
 
-            'description' => 'MoveSmartPlus offers professional home shifting services across India. Get safe packing, loading, transportation, unloading, and unpacking for household relocation at affordable prices. Book trusted house packers and movers today.',
+            'description' => 'MoveSmartPlus offers home shifting services across Bihar and Jharkhand, with packing, loading, transportation, unloading and unpacking for household relocation. Book trusted house packers and movers today.',
 
-            'keywords' => 'home shifting services, house shifting, home relocation, household shifting, house packers and movers, home movers, local home shifting, intercity home shifting, residential relocation, furniture shifting, apartment shifting, villa relocation, packers and movers India, MoveSmartPlus',
+            'keywords' => 'home shifting services Bihar, house shifting Jharkhand, home relocation, household shifting, house packers and movers, local home shifting, intercity home shifting Bihar, residential relocation',
 
             'canonical' => url()->current(),
 
             'robots' => 'index, follow',
 
-            'og_title' => 'Professional Home Shifting Services | MoveSmartPlus',
+            'og_title' => 'Home Shifting Services in Bihar & Jharkhand | MoveSmartPlus',
 
-            'og_description' => 'Relocate your home safely with MoveSmartPlus. Professional packing, secure transportation, careful loading & unloading, and hassle-free household shifting services across India.',
+            'og_description' => 'Relocate your home safely with MoveSmartPlus. Packing, secure transportation, careful loading and unloading, and household shifting services across Bihar and Jharkhand.',
 
             'og_image' => public_url('images/services/page/home-shift.png'),
 
             'og_url' => url()->current(),
 
-            'twitter_title' => 'Home Shifting Services | MoveSmartPlus',
+            'twitter_title' => 'Home Shifting Services in Bihar & Jharkhand | MoveSmartPlus',
 
-            'twitter_description' => 'Trusted home shifting and household relocation services with professional packers and movers across India.',
+            'twitter_description' => 'Trusted home shifting and household relocation services with professional packers and movers across Bihar and Jharkhand.',
 
             'twitter_image' =>public_url('images/services/page/home-shift.png'),
         ];

@@ -43,9 +43,13 @@ class BookingController extends Controller
             ->orderBy('display_order')
             ->get();
 
+        // Per-booking page — not meant for search engines.
+        $seo = ['robots' => 'noindex, nofollow'];
+
         return view('booking.inventory', compact(
             'booking',
-            'categories'
+            'categories',
+            'seo'
         ));
     }
     public function saveInventory(BookingInventoryRequest $request, Booking $booking) {
@@ -58,9 +62,12 @@ class BookingController extends Controller
     }
     public function success(Booking $booking)
     {
+        // Per-booking page — not meant for search engines.
+        $seo = ['robots' => 'noindex, nofollow'];
+
         return view(
             'booking.success',
-            compact('booking')
+            compact('booking', 'seo')
         );
     }
 }

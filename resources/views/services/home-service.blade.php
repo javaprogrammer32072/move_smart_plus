@@ -1,25 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Packers and Movers Services in India | MoveSmartPlus')
-@section('style')
-
-@endsection
 @section('content')
- <section class="page-title"
-    style="background-image: url(images/resource/page-title.png);opacity: 0.85;background-color: var(--theme-color-lighter);">
-    <div class="auto-container">
-      <div class="title-outer text-center">
-        <div class="h1 title">Home Shifting Service</div>
-        <ul class="page-breadcrumb">
-          <li><a href="{{url('')}}">Home</a></li>
-          <li><a href="{{ url('/services') }}">Services</a></li>
-          <li>Home Shifting</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-  <!-- end main-content -->
- 
+
+    <x-services.page-title title="Home Shifting Service" crumb="Home Shifting" />
  <section class="services-details pt-120 pb-120">
     <div class="container">
       <div class="row">

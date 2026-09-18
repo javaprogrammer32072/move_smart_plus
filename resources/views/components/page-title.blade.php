@@ -1,10 +1,14 @@
-@props(['title', 'crumb' => null, 'parent' => null, 'parentUrl' => null])
+@props(['title', 'crumb' => null, 'parent' => null, 'parentUrl' => null, 'asH1' => true])
 
 <section class="page-title"
     style="background-image: url(images/resource/page-title.png);opacity: 0.85;background-color: var(--theme-color-lighter);">
     <div class="auto-container">
         <div class="title-outer text-center">
-            <div class="h1 title">{{ $title }}</div>
+            @if ($asH1)
+                <h1 class="title">{{ $title }}</h1>
+            @else
+                <div class="h1 title">{{ $title }}</div>
+            @endif
             <ul class="page-breadcrumb">
                 <li><a href="{{ url('') }}">Home</a></li>
                 @if ($parent)

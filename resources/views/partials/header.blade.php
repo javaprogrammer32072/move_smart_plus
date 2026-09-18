@@ -45,9 +45,6 @@
                             </li>
                             <li class="dropdown"><a href="{{ url('/services') }}">Our Services</a>
                             </li>
-                            <li class="dropdown"><a href="#">Projects</a>
-                               
-                            </li>
                             <li class="dropdown"><a href="{{ route('blogs.index') }}">Blog</a>
                             </li>
                             <li><a href="/contact-us">Contact Us</a></li>

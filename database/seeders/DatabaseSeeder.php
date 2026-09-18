@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             CitySeeder::class,
+            BiharJharkhandCitySeeder::class,
             InventoryCategorySeeder::class,
             InventoryItemSeeder::class,
             FaqSeeder::class,

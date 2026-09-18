@@ -1,18 +1,169 @@
 @extends('layouts.app')
 
-@section('title', 'Packers and Movers in India | House Shifting, Bike & Car Transport | MoveSmartPlus')
 @section('style')
     <style>
         .banner-section-three .outer-container .form-box {
             padding-top: 0px;
+            margin-bottom: 0;
         }
 
-        .banner-section-three .outer-container .content-column .inner-column .banner-title {
-            font-size: 60px;
-            line-height: 65px;
+        .banner-section-three .outer-box {
+            padding-bottom: 60px;
+        }
+
+        @media (max-width: 991.98px) {
+            .banner-section-three .outer-box {
+                padding-bottom: 30px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .banner-section-three .outer-container .content-column .inner-column .banner-title {
+                font-size: 60px;
+                line-height: 65px;
+                font-weight: 600;
+                letter-spacing: 0;
+                margin-bottom: 1rem;
+            }
+        }
+
+        .banner-section-three .outer-container .form-box .inner-box .form-clt label {
+            display: block;
+            font-size: 14px;
             font-weight: 600;
-            letter-spacing: 0;
-            margin-bottom: 1rem;
+            color: var(--headings-color);
+            margin-bottom: 6px;
+        }
+
+        /* Compact form spacing — same fields, tighter gaps */
+        .banner-section-three .outer-container .form-box .inner-box {
+            padding-top: 25px;
+            padding-bottom: 30px;
+        }
+
+        .banner-section-three .outer-container .form-box .inner-box .title {
+            margin-bottom: 6px;
+        }
+
+        .banner-section-three .outer-container .form-box .inner-box .form-clt {
+            margin-bottom: 18px;
+        }
+
+        .banner-section-three .outer-container .form-box .inner-box .form-clt input,
+        .banner-section-three .outer-container .form-box .inner-box .form-clt select {
+            height: 46px;
+        }
+
+        /* Stats section — icons + subtle hover */
+        .funfact-block .funfact-icon {
+            color: var(--theme-color2);
+            font-size: 26px;
+            margin-bottom: 14px;
+            transition: transform 250ms ease;
+        }
+
+        .funfact-block .inner-block {
+            transition: transform 250ms ease;
+        }
+
+        .funfact-block:hover .inner-block {
+            transform: translateY(-4px);
+        }
+
+        .funfact-block:hover .funfact-icon {
+            transform: scale(1.12);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .wow {
+                visibility: visible !important;
+                animation: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+
+            .funfact-block .inner-block,
+            .funfact-block .funfact-icon {
+                transition: none !important;
+            }
+
+            .funfact-block:hover .inner-block,
+            .funfact-block:hover .funfact-icon {
+                transform: none !important;
+            }
+        }
+
+        /* Standardize service card image area — source images have different
+           aspect ratios (1536x1024 vs 476x378), so without a fixed ratio the
+           cards render at inconsistent heights. */
+        .services-section-two .service-block-three .image {
+            aspect-ratio: 4 / 3;
+        }
+
+        .services-section-two .service-block-three .image img {
+            height: 100%;
+        }
+
+        /* Service Zone accordion */
+        .service-zone-state {
+            border: 1px solid rgba(12, 64, 62, 0.12);
+            border-radius: 14px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        .service-zone-state summary {
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 24px;
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--headings-color);
+        }
+
+        .service-zone-state summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .service-zone-state summary .zone-toggle-icon {
+            font-size: 14px;
+            transition: transform 200ms ease;
+        }
+
+        .service-zone-state[open] summary .zone-toggle-icon {
+            transform: rotate(45deg);
+        }
+
+        .service-zone-state summary:focus-visible {
+            outline: 2px solid var(--theme-color2);
+            outline-offset: -2px;
+        }
+
+        .service-zone-districts {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 10px 16px;
+            padding: 0 24px 24px;
+            margin: 0;
+        }
+
+        .service-zone-districts li {
+            font-size: 15px;
+            color: var(--text-color);
+        }
+
+        .service-zone-note {
+            font-size: 15px;
+            color: var(--text-color);
+        }
+
+        @media (max-width: 575.98px) {
+            .service-zone-districts {
+                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            }
         }
     </style>
 @endsection
@@ -43,17 +194,20 @@
                 <div class="row">
                     <div class="content-column col-xl-6 col-lg-6">
                         <div class="inner-column wow fadeInUp" data-wow-delay="200ms">
-                            <div class="h1 banner-title">Wherever your business moves <span>we’re there</span></div>
-                            <div class="text">At Movingza we are dedicated to making every move simple, smooth, and
-                                stress-free. With years of experience in the moving and logistics</div>
-                            <a href="#" class="theme-btn btn-style-three mb-5">Discover More<i
-                                    class="fa-light fa-arrow-up-right"></i></a>
+                            <h1 class="banner-title">Packers and Movers in <span>Bihar &amp; Jharkhand</span></h1>
+                            <div class="text">Move Smart Plus handles home shifting, office relocation, packing,
+                                local moving, and car and bike transportation — with trained crews and a written
+                                quote before you book.</div>
+                            <a href="{{ route('services.index') }}" class="theme-btn btn-style-three mb-5">Explore
+                                Our Services<i class="fa-light fa-arrow-up-right"></i></a>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6">
                         <div class="form-box">
                             <div class="inner-box">
                                 <div class="h3 title wow fadeInUp" data-wow-delay="200ms">Book Your Relocation</div>
+                                <div class="text mb-3">Share your move details and get a free quote — no
+                                    obligation.</div>
                                 <form action="{{ route('booking.store') }}" method="POST">
                                     @csrf
 
@@ -62,9 +216,11 @@
                                         <!-- Customer Name -->
                                         <div class="col-lg-6 col-md-6 col-12 wow fadeInUp animated" data-wow-delay=".2s">
                                             <div class="form-clt">
-                                                <input type="text" name="customer_name" value="{{ old('customer_name') }}"
+                                                <label for="booking-customer-name">Your Name</label>
+                                                <input type="text" id="booking-customer-name" name="customer_name"
+                                                    value="{{ old('customer_name') }}"
                                                     class="@error('customer_name') is-invalid @enderror"
-                                                    placeholder="Customer Name" required>
+                                                    placeholder="Enter your full name" required>
 
                                                 @error('customer_name')
                                                     <small class="text-danger">{{ $message }}</small>
@@ -75,9 +231,11 @@
                                         <!-- Mobile -->
                                         <div class="col-lg-6 col-md-6 col-12 wow fadeInUp animated" data-wow-delay=".3s">
                                             <div class="form-clt">
-                                                <input type="text" name="phone" maxlength="10" value="{{ old('phone') }}"
-                                                    class="@error('phone') is-invalid @enderror" placeholder="Mobile Number"
-                                                    required>
+                                                <label for="booking-phone">Mobile Number</label>
+                                                <input type="text" id="booking-phone" name="phone" maxlength="10"
+                                                    value="{{ old('phone') }}"
+                                                    class="@error('phone') is-invalid @enderror"
+                                                    placeholder="10-digit mobile number" required>
 
                                                 @error('phone')
                                                     <small class="text-danger">{{ $message }}</small>
@@ -86,12 +244,13 @@
                                         </div>
 
                                         <!-- Relocation Type -->
-                                        <div class="col-lg-6 col-md-6 col-12 wow fadeInUp animated" data-wow-delay=".4s">
+                                        <div class="col-md-12 wow fadeInUp animated" data-wow-delay=".4s">
                                             <div class="form-clt">
-                                                <select name="relocation_type"
+                                                <label for="booking-relocation-type">Service Type</label>
+                                                <select id="booking-relocation-type" name="relocation_type"
                                                     class="@error('relocation_type') is-invalid @enderror">
 
-                                                    <option value="">Relocation Type</option>
+                                                    <option value="">Select service type</option>
 
                                                     <option value="Home" {{ old('relocation_type') == 'Home' ? 'selected' : '' }}>
                                                         Home Relocation
@@ -133,10 +292,11 @@
                                         <div class="col-lg-6 col-md-6 col-12 wow fadeInUp animated" data-wow-delay=".5s">
                                             <div class="form-clt">
 
-                                                <select name="pickup_city"
+                                                <label for="booking-pickup-city">Pickup City</label>
+                                                <select id="booking-pickup-city" name="pickup_city"
                                                     class="@error('pickup_city') is-invalid @enderror">
 
-                                                    <option value="">Select Pickup City</option>
+                                                    <option value="">Select pickup city</option>
 
                                                     @foreach($cities as $city)
 
@@ -157,29 +317,15 @@
                                             </div>
                                         </div>
 
-                                        <!-- Pickup Address -->
-                                        <div class="col-md-12 wow fadeInUp animated" data-wow-delay=".6s">
-                                            <div class="form-clt">
-
-                                                <input type="text" name="pickup_address" value="{{ old('pickup_address') }}"
-                                                    class="@error('pickup_address') is-invalid @enderror"
-                                                    placeholder="Pickup Address (Including PIN Code)" required>
-
-                                                @error('pickup_address')
-                                                    <small class="text-danger">{{ $message }}</small>
-                                                @enderror
-
-                                            </div>
-                                        </div>
-
                                         <!-- Destination City -->
-                                        <div class="col-lg-6 col-md-6 col-12 wow fadeInUp animated" data-wow-delay=".7s">
+                                        <div class="col-lg-6 col-md-6 col-12 wow fadeInUp animated" data-wow-delay=".6s">
                                             <div class="form-clt">
 
-                                                <select name="destination_city"
+                                                <label for="booking-destination-city">Drop City</label>
+                                                <select id="booking-destination-city" name="destination_city"
                                                     class="@error('destination_city') is-invalid @enderror">
 
-                                                    <option value="">Select Destination City</option>
+                                                    <option value="">Select drop city</option>
 
                                                     @foreach($cities as $city)
 
@@ -200,14 +346,32 @@
                                             </div>
                                         </div>
 
-                                        <!-- Destination Address -->
-                                        <div class="col-md-12 wow fadeInUp animated" data-wow-delay=".8s">
+                                        <!-- Pickup Address -->
+                                        <div class="col-lg-6 col-md-6 col-12 wow fadeInUp animated" data-wow-delay=".7s">
                                             <div class="form-clt">
 
-                                                <input type="text" name="destination_address"
-                                                    value="{{ old('destination_address') }}"
+                                                <label for="booking-pickup-address">Pickup Address</label>
+                                                <input type="text" id="booking-pickup-address" name="pickup_address"
+                                                    value="{{ old('pickup_address') }}"
+                                                    class="@error('pickup_address') is-invalid @enderror"
+                                                    placeholder="House/street and PIN code" required>
+
+                                                @error('pickup_address')
+                                                    <small class="text-danger">{{ $message }}</small>
+                                                @enderror
+
+                                            </div>
+                                        </div>
+
+                                        <!-- Destination Address -->
+                                        <div class="col-lg-6 col-md-6 col-12 wow fadeInUp animated" data-wow-delay=".8s">
+                                            <div class="form-clt">
+
+                                                <label for="booking-destination-address">Drop Address</label>
+                                                <input type="text" id="booking-destination-address"
+                                                    name="destination_address" value="{{ old('destination_address') }}"
                                                     class="@error('destination_address') is-invalid @enderror"
-                                                    placeholder="Destination Address (Including PIN Code)" required>
+                                                    placeholder="House/street and PIN code" required>
 
                                                 @error('destination_address')
                                                     <small class="text-danger">{{ $message }}</small>
@@ -219,7 +383,7 @@
                                         <!-- Submit -->
                                         <div class="col-md-12 wow fadeInUp animated" data-wow-delay=".9s">
                                             <button type="submit" class="theme-btn btn-style-four w-100">
-                                                Continue Booking →
+                                                Get Free Quote →
                                             </button>
                                         </div>
 
@@ -231,69 +395,75 @@
                 </div>
             </div>
         </div>
-        <video autoplay="" muted="" loop="" playsinline="" class="bg-video">
-            <source src="{{ public_url('images/resource/banner3-1.mp4 ')}}" type="video/mp4">
-        </video>
     </section>
     <!-- end banner-section -->
+
+    <!-- Funfact Section -->
+    <section class="funfact-section pt-0">
+        <div class="h4 funfact-title">Move Smart Plus in Numbers</div>
+        <div class="container">
+            <div class="inner-row">
+                @php
+                    $stats = [
+                        ['icon' => 'fas fa-map-marker-alt', 'label' => 'States <br>Covered', 'stop' => 5],
+                        ['icon' => 'fas fa-map', 'label' => 'Districts <br>Covered', 'stop' => 50],
+                        ['icon' => 'fas fa-users', 'label' => 'Satisfied <br>Customers', 'stop' => 700],
+                        ['icon' => 'fas fa-briefcase', 'label' => 'Trained <br>Employees', 'stop' => 60],
+                    ];
+                @endphp
+                @foreach ($stats as $index => $stat)
+                    <div class="funfact-block wow fadeInUp" data-wow-delay="{{ $index * 100 }}ms">
+                        <div class="inner-block">
+                            <div class="funfact-icon"><i class="{{ $stat['icon'] }}" aria-hidden="true"></i></div>
+                            <div class="text">{!! $stat['label'] !!}</div>
+                            <div class="h3 count-box"><span class="count-text" data-speed="1500"
+                                    data-stop="{{ $stat['stop'] }}">0</span>+</div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    <!-- End Funfact Section -->
 
     <!-- start about-section -->
     <section class="about-section">
         <div class="auto-container">
             <div class="sec-title">
                 <div class="h6 sub-title wow fadeInUp" data-wow-delay="200ms">About Us</div>
-                <div class="h2 title wow fadeInUp" data-wow-delay="400ms">Experience a Better Way to Move With a Team
-                    <span>That Truly Cares</span>
-                </div>
+                <h2 class="title wow fadeInUp" data-wow-delay="400ms">A Moving Team Bihar &amp; Jharkhand
+                    <span>Customers Can Rely On</span>
+                </h2>
             </div>
             <div class="upper-box wow fadeInUp" data-wow-delay="400ms">
-                <div class="text">It is a long established fact that a reader will be distracted by the readable content of
-                    a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                    distribution of letters, as opposed to using 'Content here, content here', making it look like readable
-                    English. </div>
-                <div class="author-info">
-                    <div class="image"><img src="{{ public_url('images/resource/about1-1.png') }}" alt=""></div>
-                    <div class="text">Based on 204 Reviews</div>
-                </div>
+                <div class="text">Move Smart Plus is a packers and movers company serving Bihar and Jharkhand. We
+                    handle home shifting, office relocation, packing, local moving, and car and bike transportation
+                    — with a written inventory and a fixed quote agreed before your move.</div>
             </div>
             <div class="row align-items-end">
                 <div class="image-column col-lg-8 col-md-6 wow fadeInUp" data-wow-delay="600ms">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="image">
-                                <div class="img"><img src="{{ public_url('images/resource/about1-1.jpg') }}" alt=""></div>
+                                <div class="img"><img src="{{ public_url('images/resource/about1-1.jpg') }}"
+                                        alt="Movers carefully carrying packed boxes during a home relocation"
+                                        loading="lazy"></div>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="image two">
-                                <div class="img"><img src="{{ public_url('images/resource/about1-2.jpg') }}" alt=""></div>
+                                <div class="img"><img src="{{ public_url('images/resource/about1-2.jpg') }}"
+                                        alt="A mover in a storage facility preparing goods for transport"
+                                        loading="lazy"></div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="content-column col-lg-3 col-md-6 offset-xl-1">
                     <div class="inner-column wow fadeInUp" data-wow-delay="700ms">
-                        <div class="funfact-box">
-                            <div class="inner-box">
-                                <div class="h6 title">Satisfaction</div>
-                                <div class="count-info">
-                                    <div class="count-box"><span class="count-text" data-speed="3000"
-                                            data-stop="98">0</span>%</div>
-                                    <div class="text">Satisfaction <br>Guaranteed</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="funfact-box">
-                            <div class="inner-box">
-                                <div class="h6 title">Countries</div>
-                                <div class="count-info">
-                                    <div class="count-box"><span class="count-text" data-speed="3000"
-                                            data-stop="150">0</span>+</div>
-                                    <div class="text">Expanding <br>in 25 Countries</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#" class="theme-btn btn-style-one">More About Us<i
+                        <p>From a single room to a full household or office, our crews handle packing, loading,
+                            transport and unloading as one coordinated service.</p>
+                        <a href="{{ route('about') }}" class="theme-btn btn-style-one">More About Us<i
                                 class="fa-light fa-arrow-up-right"></i></a>
                     </div>
                 </div>
@@ -307,149 +477,103 @@
         <div class="outer-box">
             <div class="outer-container">
                 <div class="sec-title text-center light wow fadeInUp" data-wow-delay="200ms">
-                    <div class="h6 sub-title">Our Service</div>
-                    <div class="h2 title">Reliable Moving Services for Homes <span>& Businesses</span></div>
+                    <div class="h6 sub-title">Our Services</div>
+                    <h2 class="title">Moving Services for Homes <span>&amp; Businesses</span></h2>
                 </div>
-                <div class="service-two-slider swiper-container pb-0">
-                    <div class="swiper-wrapper wow fadeInUp" data-wow-delay="400ms">
-                        <div class="service-block-three swiper-slide">
-                            <div class="inner-block">
-                                <div class="image">
-                                    <a href="#">
-                                        <img src="{{ public_url('images/resource/service3-1.jpg') }}" alt="blog">
-                                        <img src="{{ public_url('images/resource/service3-1.jpg') }}" alt="blog">
-                                    </a>
-                                </div>
-                                <div class="content-box">
-                                    <div class="inner-box">
-                                        <div class="icon"><i class="flaticon-home-delivery"></i></div>
-                                        <div class="content">
-                                            <div class="h4 title"><a href="#">Residential Moving</a>
+                <div class="row gx-4 gy-4">
+                    @php
+                        $homeServices = [
+                            ['icon' => 'flaticon-home-delivery', 'title' => 'Home Shifting', 'text' => 'Professional packing, loading and transport for your household move.', 'route' => 'services.home-shifting', 'image' => 'images/services/home-shifting.png', 'alt' => 'Movers packing household belongings for home shifting'],
+                            ['icon' => 'flaticon-delivery-man-2', 'title' => 'Office Relocation', 'text' => 'Office and corporate relocation with minimal business downtime.', 'route' => 'services.office-relocation', 'image' => 'images/services/office-relocation.png', 'alt' => 'Movers packing office furniture for a relocation'],
+                            ['icon' => 'flaticon-cargo', 'title' => 'Warehouse Storage', 'text' => 'Short-term and long-term storage for household or business goods.', 'route' => 'services.warehouse-storage', 'image' => 'images/services/warehouse.png', 'alt' => 'Organized warehouse storage facility'],
+                            ['icon' => 'flaticon-delivery', 'title' => 'Local Moving', 'text' => 'Same-day packing, loading and delivery within your city.', 'route' => 'services.local-moving', 'image' => 'images/services/local-moving.png', 'alt' => 'Movers loading furniture for a local house shift'],
+                            ['icon' => 'flaticon-shipment', 'title' => 'Car Transportation', 'text' => 'Door-to-door car transport with inspection at pickup and delivery.', 'route' => 'services.car-transportation', 'image' => 'images/services/car-transport.png', 'alt' => 'Car loaded onto a carrier for transportation'],
+                            ['icon' => 'flaticon-logistic', 'title' => 'Bike Transportation', 'text' => 'Careful packing and doorstep delivery for your bike.', 'route' => 'services.bike-transportation', 'image' => 'images/services/bike-transport.png', 'alt' => 'Motorcycle packed and crated for transportation'],
+                        ];
+                    @endphp
+                    @foreach ($homeServices as $index => $service)
+                        <div class="col-xl-4 col-md-6">
+                            <div class="service-block-three">
+                                <div class="inner-block">
+                                    <div class="image">
+                                        <a href="{{ route($service['route']) }}">
+                                            <img src="{{ public_url($service['image']) }}" alt="{{ $service['alt'] }}"
+                                                loading="lazy">
+                                            <img src="{{ public_url($service['image']) }}" alt="{{ $service['alt'] }}"
+                                                loading="lazy">
+                                        </a>
+                                    </div>
+                                    <div class="content-box">
+                                        <div class="inner-box">
+                                            <div class="icon"><i class="{{ $service['icon'] }}"></i></div>
+                                            <div class="content">
+                                                <div class="h4 title"><a
+                                                        href="{{ route($service['route']) }}">{{ $service['title'] }}</a>
+                                                </div>
+                                                <div class="text">{{ $service['text'] }}</div>
                                             </div>
-                                            <div class="text">On the other hand, we denounce with righteous indignation
-                                            </div>
+                                            <div class="counte">{{ sprintf('%02d', $index + 1) }}</div>
                                         </div>
-                                        <div class="counte">01</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="service-block-three swiper-slide">
-                            <div class="inner-block">
-                                <div class="image">
-                                    <a href="#">
-                                        <img src="{{ public_url('images/resource/service3-2.jpg') }}" alt="blog">
-                                        <img src="{{ public_url('images/resource/service3-2.jpg') }}" alt="blog">
-                                    </a>
-                                </div>
-                                <div class="content-box">
-                                    <div class="inner-box">
-                                        <div class="icon"><i class="flaticon-delivery-man-2"></i></div>
-                                        <div class="content">
-                                            <div class="h4 title"><a href="#">Commercial Moving</a>
-                                            </div>
-                                            <div class="text">On the other hand, we denounce with righteous indignation
-                                            </div>
-                                        </div>
-                                        <div class="counte">02</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="service-block-three swiper-slide">
-                            <div class="inner-block">
-                                <div class="image">
-                                    <a href="#">
-                                        <img src="{{ public_url('images/resource/service3-3.jpg') }}" alt="blog">
-                                        <img src="{{ public_url('images/resource/service3-3.jpg') }}" alt="blog">
-                                    </a>
-                                </div>
-                                <div class="content-box">
-                                    <div class="inner-box">
-                                        <div class="icon"><i class="flaticon-delivery"></i></div>
-                                        <div class="content">
-                                            <div class="h4 title"><a href="#">Furniture
-                                                    Disassembly</a></div>
-                                            <div class="text">On the other hand, we denounce with righteous indignation
-                                            </div>
-                                        </div>
-                                        <div class="counte">03</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="service-block-three swiper-slide">
-                            <div class="inner-block">
-                                <div class="image">
-                                    <a href="#">
-                                        <img src="{{ public_url('images/resource/service3-3.jpg') }}" alt="blog">
-                                        <img src="{{ public_url('images/resource/service3-3.jpg') }}" alt="blog">
-                                    </a>
-                                </div>
-                                <div class="content-box">
-                                    <div class="inner-box">
-                                        <div class="icon"><i class="flaticon-cargo"></i></div>
-                                        <div class="content">
-                                            <div class="h4 title"><a href="#">Local Moving</a></div>
-                                            <div class="text">On the other hand, we denounce with righteous indignation
-                                            </div>
-                                        </div>
-                                        <div class="counte">04</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="service-block-three swiper-slide">
-                            <div class="inner-block">
-                                <div class="image">
-                                    <a href="#">
-                                        <img src="{{ public_url('images/resource/service3-2.jpg') }}" alt="blog">
-                                        <img src="{{ public_url('images/resource/service3-2.jpg') }}" alt="blog">
-                                    </a>
-                                </div>
-                                <div class="content-box">
-                                    <div class="inner-box">
-                                        <div class="icon"><i class="flaticon-logistic"></i></div>
-                                        <div class="content">
-                                            <div class="h4 title"><a href="#">Commercial Moving</a>
-                                            </div>
-                                            <div class="text">On the other hand, we denounce with righteous indignation
-                                            </div>
-                                        </div>
-                                        <div class="counte">05</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="service-block-three swiper-slide">
-                            <div class="inner-block">
-                                <div class="image">
-                                    <a href="#">
-                                        <img src="{{ public_url('images/resource/service3-3.jpg') }}" alt="blog">
-                                        <img src="{{ public_url('images/resource/service3-3.jpg') }}" alt="blog">
-                                    </a>
-                                </div>
-                                <div class="content-box">
-                                    <div class="inner-box">
-                                        <div class="icon"><i class="flaticon-team"></i></div>
-                                        <div class="content">
-                                            <div class="h4 title"><a href="#">Furniture
-                                                    Disassembly</a></div>
-                                            <div class="text">On the other hand, we denounce with righteous indignation
-                                            </div>
-                                        </div>
-                                        <div class="counte">06</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="service-two-dots"></div>
+                    @endforeach
+                </div>
+                <div class="text-center mt-4">
+                    <a href="{{ route('services.index') }}" class="theme-btn btn-style-five">View All
+                        Services<i class="fa-light fa-arrow-up-right"></i></a>
                 </div>
             </div>
         </div>
     </section>
     <!-- end services-section-two -->
+
+    <!-- start service-zone-section -->
+    <section class="why-choose-us-section pb-90 pt-0">
+        <div class="auto-container">
+            <div class="sec-title text-center">
+                <div class="h6 sub-title">Where We Operate</div>
+                <h2 class="title">Our <span>Service Zones</span></h2>
+                <div class="text">Move Smart Plus provides relocation support across 5+ states, with the most
+                    coverage across 50+ districts in Bihar and Jharkhand. Expand a state below to check the
+                    districts closest to you — this shows our service area, not a guarantee that every location is
+                    currently active, so please confirm availability for your address when you contact us.</div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    @foreach ($stateZones as $state)
+                        <details class="service-zone-state">
+                            <summary>
+                                <span>{{ $state['name'] }} <small
+                                        class="fw-normal">({{ count($state['districts']) }}
+                                        districts)</small></span>
+                                <span class="zone-toggle-icon"><i class="fa-solid fa-plus"></i></span>
+                            </summary>
+                            <ul class="service-zone-districts">
+                                @foreach ($state['districts'] as $district)
+                                    <li>{{ $district }}</li>
+                                @endforeach
+                            </ul>
+                        </details>
+                    @endforeach
+                    <details class="service-zone-state">
+                        <summary>
+                            <span>Other Supported States</span>
+                            <span class="zone-toggle-icon"><i class="fa-solid fa-plus"></i></span>
+                        </summary>
+                        <div class="service-zone-districts" style="display:block;">
+                            <p class="service-zone-note">We also support relocation to a small number of
+                                additional states beyond Bihar and Jharkhand.
+                                <a href="{{ route('contact-us') }}">Contact us</a> to confirm coverage for your
+                                specific route.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end service-zone-section -->
 
     <!-- start working-section-three  -->
     <section class="working-section">
@@ -458,13 +582,15 @@
                 <div class="col-lg-6">
                     <div class="sec-title wow fadeInUp" data-wow-delay="200ms">
                         <div class="h6 sub-title">How It Works</div>
-                        <div class="h2 title">Simple Process for <br>a <span>Smooth Move</span></div>
+                        <h2 class="title">Simple Process for <br>a <span>Smooth Move</span></h2>
                     </div>
                     <div class="hiw-image-box wow fadeInUp" data-wow-delay="400ms">
                         <div class="inner-box">
                             <div class="image-box">
-                                <img src="{{ public_url('images/resource/how-it-work.jpg') }}" alt="">
-                                <img src="{{ public_url('images/resource/how-it-work.jpg') }}" alt="">
+                                <img src="{{ public_url('images/resource/how-it-work.jpg') }}"
+                                    alt="Movers carrying packed boxes during a household move" loading="lazy">
+                                <img src="{{ public_url('images/resource/how-it-work.jpg') }}"
+                                    alt="Movers carrying packed boxes during a household move" loading="lazy">
                             </div>
                             <div class="features">
                                 <ul>
@@ -529,260 +655,21 @@
     </section>
     <!-- end working-section-three -->
 
-    <!-- Funfact Section -->
-    <section class="funfact-section pt-0">
-        <div class="h4 funfact-title">Our Experience Speaks for Itself</div>
-        <div class="container">
-            <div class="inner-row">
-                <div class="funfact-block">
-                    <div class="inner-block">
-                        <div class="text">Successful Moves <br>Completed</div>
-                        <div class="h3 count-box"><span class="count-text" data-speed="3000" data-stop="1500">0</span>+
-                        </div>
-                    </div>
-                </div>
-                <div class="funfact-block">
-                    <div class="inner-block">
-                        <div class="text">Customer <br>Satisfaction Rate</div>
-                        <div class="h3 count-box"><span class="count-text" data-speed="3000" data-stop="98">0</span>%</div>
-                    </div>
-                </div>
-                <div class="funfact-block">
-                    <div class="inner-block">
-                        <div class="text">Local & Long-Distance <br>Routes Served</div>
-                        <div class="h3 count-box"><span class="count-text" data-speed="3000" data-stop="4.9">0</span>/5
-                        </div>
-                    </div>
-                </div>
-                <div class="funfact-block">
-                    <div class="inner-block">
-                        <div class="text">Trained & <br>Professional Movers</div>
-                        <div class="h3 count-box"><span class="count-text" data-speed="3000" data-stop="50">0</span>+</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Funfact Section -->
-
-    <!-- Service Section -->
-    <section class="services-section pt-0">
-        <div class="outer-container">
-            <div class="auto-container">
-                <div class="sec-title">
-                    <div class="row align-items-end">
-                        <div class="col-xl-2">
-                            <div class="h6 sub-title">Project</div>
-                        </div>
-                        <div class="col-xl-7">
-                            <div class="h2 title">Our Most Recent <br>Moving <span>Projects Portfolio</span></div>
-                        </div>
-                        <div class="col-xl-3">
-                            <div class="text">It is a long established fact that a reader will be distracted by the readable
-                                content of a page when looking at its layout.</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="outer-box" data-background="./images/resource/service1-bg1.jpg') }}">
-                <div class="service-one-slider swiper-container">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <!-- service-block -->
-                            <div class="service-block" data-bg="./images/resource/service1-bg1.jpg') }}">
-                                <div class="inner-box">
-                                    <div class="content">
-                                        <div class="h6 sub-title">
-                                            <span class="text">Moving</span>
-                                            <span class="text">Residential</span>
-                                        </div>
-                                        <div class="h3 title"><a href="#">Complete Residential Home
-                                                Move</a></div>
-                                        <div class="text">It is a long established fact that a reader will be distracted by
-                                            the readable</div>
-                                        <div class="btn-box">
-                                            <a class="btn-arrow" href="#">View Project <i
-                                                    class="fa fa-arrow-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <!-- service-block -->
-                            <div class="service-block" data-bg="./images/resource/service1-bg2.jpg') }}">
-                                <div class="inner-box">
-                                    <div class="content">
-                                        <div class="h6 sub-title">
-                                            <span class="text">Moving</span>
-                                            <span class="text">Residential</span>
-                                        </div>
-                                        <div class="h3 title"><a href="#">Full Office Relocation
-                                                Project</a></div>
-                                        <div class="text">It is a long established fact that a reader will be distracted by
-                                            the readable</div>
-                                        <div class="btn-box">
-                                            <a class="btn-arrow" href="#">View Project <i
-                                                    class="fa fa-arrow-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <!-- service-block -->
-                            <div class="service-block" data-bg="./images/resource/service1-bg3.jpg') }}">
-                                <div class="inner-box">
-                                    <div class="content">
-                                        <div class="h6 sub-title">
-                                            <span class="text">Moving</span>
-                                            <span class="text">Residential</span>
-                                        </div>
-                                        <div class="h3 title"><a href="#">Long-Distance Household Move</a>
-                                        </div>
-                                        <div class="text">It is a long established fact that a reader will be distracted by
-                                            the readable</div>
-                                        <div class="btn-box">
-                                            <a class="btn-arrow" href="#">View Project <i
-                                                    class="fa fa-arrow-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <!-- service-block -->
-                            <div class="service-block" data-bg="./images/resource/service1-bg4.jpg') }}">
-                                <div class="inner-box">
-                                    <div class="content">
-                                        <div class="h6 sub-title">
-                                            <span class="text">Moving</span>
-                                            <span class="text">Residential</span>
-                                        </div>
-                                        <div class="h3 title"><a href="#">Apartment-to-House Moving
-                                                Service</a></div>
-                                        <div class="text">It is a long established fact that a reader will be distracted by
-                                            the readable</div>
-                                        <div class="btn-box">
-                                            <a class="btn-arrow" href="#">View Project <i
-                                                    class="fa fa-arrow-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <!-- service-block -->
-                            <div class="service-block" data-bg="./images/resource/service1-bg1.jpg') }}">
-                                <div class="inner-box">
-                                    <div class="content">
-                                        <div class="h6 sub-title">
-                                            <span class="text">Moving</span>
-                                            <span class="text">Residential</span>
-                                        </div>
-                                        <div class="h3 title"><a href="#">Complete Residential Home
-                                                Move</a></div>
-                                        <div class="text">It is a long established fact that a reader will be distracted by
-                                            the readable</div>
-                                        <div class="btn-box">
-                                            <a class="btn-arrow" href="#">View Project <i
-                                                    class="fa fa-arrow-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <!-- service-block -->
-                            <div class="service-block" data-bg="./images/resource/service1-bg2.jpg') }}">
-                                <div class="inner-box">
-                                    <div class="content">
-                                        <div class="h6 sub-title">
-                                            <span class="text">Moving</span>
-                                            <span class="text">Residential</span>
-                                        </div>
-                                        <div class="h3 title"><a href="#">Full Office Relocation
-                                                Project</a></div>
-                                        <div class="text">It is a long established fact that a reader will be distracted by
-                                            the readable</div>
-                                        <div class="btn-box">
-                                            <a class="btn-arrow" href="#">View Project <i
-                                                    class="fa fa-arrow-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <!-- service-block -->
-                            <div class="service-block" data-bg="./images/resource/service1-bg3.jpg') }}">
-                                <div class="inner-box">
-                                    <div class="content">
-                                        <div class="h6 sub-title">
-                                            <span class="text">Moving</span>
-                                            <span class="text">Residential</span>
-                                        </div>
-                                        <div class="h3 title"><a href="#">Long-Distance Household Move</a>
-                                        </div>
-                                        <div class="text">It is a long established fact that a reader will be distracted by
-                                            the readable</div>
-                                        <div class="btn-box">
-                                            <a class="btn-arrow" href="#">View Project <i
-                                                    class="fa fa-arrow-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <!-- service-block -->
-                            <div class="service-block" data-bg="./images/resource/service1-bg4.jpg') }}">
-                                <div class="inner-box">
-                                    <div class="content">
-                                        <div class="h6 sub-title">
-                                            <span class="text">Moving</span>
-                                            <span class="text">Residential</span>
-                                        </div>
-                                        <div class="h3 title"><a href="#">Apartment-to-House Moving
-                                                Service</a></div>
-                                        <div class="text">It is a long established fact that a reader will be distracted by
-                                            the readable</div>
-                                        <div class="btn-box">
-                                            <a class="btn-arrow" href="#">View Project <i
-                                                    class="fa fa-arrow-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="arrow-box">
-                        <button class="slider-prev">
-                            <i class="fa-regular fa-arrow-left"></i>
-                        </button>
-                        <button class="slider-next">
-                            <i class="fa-regular fa-arrow-right"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Service Section -->
 
     <!-- start why-choose-us-section -->
     <section class="why-choose-us-section pb-90 pt-0">
         <div class="auto-container">
             <div class="sec-title text-center">
                 <div class="h6 sub-title">Why Choose Us</div>
-                <div class="h2 title">Why Choose Our <span>Moving Experts?</span></div>
-                <div class="text">It is a long established fact that a reader will be distracted by the readable content of
-                    a page when looking at its layout. </div>
+                <h2 class="title">Why Choose Move <span>Smart Plus?</span></h2>
+                <div class="text">Four things we get right on every move, whether it's across town or across Bihar
+                    and Jharkhand.</div>
             </div>
             <div class="row">
                 <div class="image-column col-xl-4 col-lg-4">
                     <div class="inner-column">
-                        <div class="image"><img src="{{ public_url('images/resource/wcu1-1.jpg') }}" alt=""></div>
+                        <div class="image"><img src="{{ public_url('images/resource/wcu1-1.jpg') }}"
+                                alt="Move Smart Plus mover in a storage facility" loading="lazy"></div>
                     </div>
                 </div>
                 <div class="content-column col-xl-5 col-lg-8">
@@ -791,10 +678,11 @@
                             <div class="inner-block">
                                 <div class="icon"><i class="flaticon-shipment"></i></div>
                                 <div class="content">
-                                    <div class="h4 title"><a href="#">Transparent & Fair Pricing</a>
+                                    <div class="h4 title"><a href="{{ route('contact-us') }}">Transparent &amp; Fair
+                                            Pricing</a>
                                     </div>
-                                    <div class="text">Our experienced movers handle every item with care, ensuring a smooth
-                                    </div>
+                                    <div class="text">A fixed, written quote shared before you book — no surprise
+                                        charges added on moving day.</div>
                                 </div>
                             </div>
                         </div>
@@ -802,10 +690,10 @@
                             <div class="inner-block active">
                                 <div class="icon"><i class="flaticon-delivery-man-1"></i></div>
                                 <div class="content">
-                                    <div class="h4 title"><a href="#">Professional & Experienced
+                                    <div class="h4 title"><a href="{{ route('about') }}">Trained &amp; Experienced
                                             Team</a></div>
-                                    <div class="text">Our experienced movers handle every item with care, ensuring a smooth
-                                    </div>
+                                    <div class="text">Trained crews who handle packing, loading and transport with
+                                        care, from a single room to a full office.</div>
                                 </div>
                             </div>
                         </div>
@@ -813,10 +701,11 @@
                             <div class="inner-block">
                                 <div class="icon"><i class="flaticon-delivery-man"></i></div>
                                 <div class="content">
-                                    <div class="h4 title"><a href="#">Fast & On-Time Service</a>
+                                    <div class="h4 title"><a href="{{ route('timeline') }}">Fast &amp; On-Time
+                                            Service</a>
                                     </div>
-                                    <div class="text">Our experienced movers handle every item with care, ensuring a smooth
-                                    </div>
+                                    <div class="text">Local shifts completed the same day, with move dates agreed
+                                        upfront and kept.</div>
                                 </div>
                             </div>
                         </div>
@@ -824,17 +713,19 @@
                             <div class="inner-block">
                                 <div class="icon"><i class="flaticon-cash-on-delivery"></i></div>
                                 <div class="content">
-                                    <div class="h4 title"><a href="#">Fully Insured & Secure</a>
+                                    <div class="h4 title"><a href="{{ route('help-center') }}">Written Inventory,
+                                            Every Move</a>
                                     </div>
-                                    <div class="text">Our experienced movers handle every item with care, ensuring a smooth
-                                    </div>
+                                    <div class="text">A written inventory taken at pickup and checked again at
+                                        delivery, so nothing gets left behind.</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3">
-                    <div class="anim-shape"><img src="{{ public_url('images/icons/wcu1-1.png') }}" alt=""></div>
+                    <div class="anim-shape"><img src="{{ public_url('images/icons/wcu1-1.png') }}" alt=""
+                            loading="lazy"></div>
                 </div>
             </div>
         </div>
@@ -850,12 +741,13 @@
                         <div class="inner-column">
                             <div class="sec-title light">
                                 <div class="h6 sub-title">FAQS</div>
-                                <div class="h2 title">Answers Most <br>Common <span>Queries!</span></div>
+                                <h2 class="title">Answers to Common <span>Questions</span></h2>
                             </div>
                             <div class="content-box">
                                 <div class="inner-box">
-                                    <div class="h3 title">Have Any Question on Your Minds?</div>
-                                    <a href="#" class="theme-btn btn-style-five">Get In Touch</a>
+                                    <div class="h3 title">Have a Question We Haven't Covered?</div>
+                                    <a href="{{ route('contact-us') }}" class="theme-btn btn-style-five">Get In
+                                        Touch</a>
                                 </div>
                             </div>
                         </div>
@@ -864,59 +756,27 @@
                         <div class="inner-column wow fadeInUp" data-wow-delay="200ms">
                             <div class="faq-box">
                                 <div class="inner-box">
+                                    @php
+                                        $homeFaqs = [
+                                            ['q' => 'How early should I book my moving date?', 'a' => "For local shifts within the same city, 3-5 days' notice is usually enough. For intercity moves or peak season dates, we recommend booking 2-3 weeks ahead."],
+                                            ['q' => 'Do you provide a free estimate?', 'a' => 'Yes. A move coordinator reviews your requirements and shares a written, fixed quote before you book — no charges added on moving day.'],
+                                            ['q' => 'Can you move heavy or bulky items like wardrobes and appliances?', 'a' => 'Yes, our crew is trained to handle heavy and oversized furniture and appliances using trolleys, ramps and proper lifting technique.'],
+                                            ['q' => 'Should I pack my belongings myself or let the movers do it?', 'a' => "Most customers let our trained packers handle it, since materials and technique are matched to each item. You're welcome to pack personal or sentimental items yourself."],
+                                        ];
+                                    @endphp
                                     <ul class="accordion-box">
-                                        <!--Block-->
-                                        <li class="accordion block">
-                                            <div class="acc-btn">How early should I book my moving date?
-                                                <i class="fa-solid fa-plus"></i>
-                                            </div>
-                                            <div class="acc-content">
-                                                <div class="content">
-                                                    <div class="text">The amount you can save with solar depends on several
-                                                        key factors, but many homeowners save anywhere from 40% to 100% on
-                                                        their electricity</div>
+                                        @foreach ($homeFaqs as $index => $faq)
+                                            <li class="accordion block {{ $index === 0 ? 'active-block' : '' }}">
+                                                <div class="acc-btn {{ $index === 0 ? 'active' : '' }}">{{ $faq['q'] }}
+                                                    <i class="fa-solid fa-plus"></i>
                                                 </div>
-                                            </div>
-                                        </li>
-                                        <!--Block-->
-                                        <li class="accordion block active-block">
-                                            <div class="acc-btn active">Do you provide free estimates for moving services?
-                                                <i class="fa-solid fa-plus"></i>
-                                            </div>
-                                            <div class="acc-content current">
-                                                <div class="content">
-                                                    <div class="text">The amount you can save with solar depends on several
-                                                        key factors, but many homeowners save anywhere from 40% to 100% on
-                                                        their electricity</div>
+                                                <div class="acc-content {{ $index === 0 ? 'current' : '' }}">
+                                                    <div class="content">
+                                                        <div class="text">{{ $faq['a'] }}</div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </li>
-                                        <!--Block-->
-                                        <li class="accordion block">
-                                            <div class="acc-btn">Can you move large items like pianos or safes?
-                                                <i class="fa-solid fa-plus"></i>
-                                            </div>
-                                            <div class="acc-content">
-                                                <div class="content">
-                                                    <div class="text">The amount you can save with solar depends on several
-                                                        key factors, but many homeowners save anywhere from 40% to 100% on
-                                                        their electricity</div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <!--Block-->
-                                        <li class="accordion block">
-                                            <div class="acc-btn">Should I pack my belongings myself or let the movers do it?
-                                                <i class="fa-solid fa-plus"></i>
-                                            </div>
-                                            <div class="acc-content">
-                                                <div class="content">
-                                                    <div class="text">The amount you can save with solar depends on several
-                                                        key factors, but many homeowners save anywhere from 40% to 100% on
-                                                        their electricity</div>
-                                                </div>
-                                            </div>
-                                        </li>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>
@@ -926,98 +786,22 @@
             </div>
         </div>
     </section>
-    <!-- end faq-section -->
 
-    <!-- Testimonial Section -->
-    <section class="testimonial-section">
-        <div class="outer-container">
-            <div class="sec-title text-center">
-                <div class="h6 sub-title">Testimonial</div>
-                <div class="h2 title">The Best Customers Says <br>About <span>Our Action</span></div>
-            </div>
-            <div class="row gx-4">
-                <div class="col-xl-6">
-                    <div class="testimonial-block">
-                        <div class="inner-box">
-                            <div class="content-box">
-                                <div class="logo"><img src="{{ public_url('images/icons/testi1-1.png') }}" alt=""></div>
-                                <div class="h4 focus-text">The team was incredibly professional</div>
-                                <div class="h5 text">“The team handled every piece of furniture with care and attention.
-                                    They were punctual, friendly, and made the whole move effortless”</div>
-                                <div class="info-box">
-                                    <div class="user-info">
-                                        <div class="h5 name">Emily Carter</div>
-                                        <span class="designation">Senior Project Manager</span>
-                                    </div>
-                                    <div class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <figure class="image-box">
-                                <img src="{{ public_url('images/resource/testimonial1-1.jpg') }}" alt="">
-                                <a href="https://www.youtube.com/watch?v=Lplq8RjQ0zU" data-fancybox="gallery"
-                                    class="video-btn playbtnanim"><i class="fa-sharp fa-solid fa-play"></i></a>
-                            </figure>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6">
-                    <div class="testimonial-block">
-                        <div class="inner-box">
-                            <div class="content-box">
-                                <div class="logo"><img src="{{ public_url('images/icons/testi1-1.png') }}" alt=""></div>
-                                <div class="h4 focus-text">The team was incredibly professional</div>
-                                <div class="h5 text">“The team handled every piece of furniture with care and attention.
-                                    They were punctual, friendly, and made the whole move effortless”</div>
-                                <div class="info-box">
-                                    <div class="user-info">
-                                        <div class="h5 name">Emily Carter</div>
-                                        <span class="designation">Senior Project Manager</span>
-                                    </div>
-                                    <div class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <figure class="image-box">
-                                <img src="{{ public_url('images/resource/testimonial1-2.jpg') }}" alt="">
-                                <a href="https://www.youtube.com/watch?v=Lplq8RjQ0zU" data-fancybox="gallery"
-                                    class="video-btn playbtnanim"><i class="fa-sharp fa-solid fa-play"></i></a>
-                            </figure>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Testimonial Section -->
-
-    <!-- start video-section -->
-    <section class="video-section">
-        <div class="outer-box">
-            <div class="bg-image wow reveal-top tm-gsap-img-parallax overflow-hidden"><img
-                    src="{{ public_url('images/resource/video1-1.jpg') }}" alt=""></div>
-            <div class="video-box wow fadeInUp animated animated" data-wow-delay="200ms">
-                <a class="play-now-one play-now" href="https://www.youtube.com/watch?v=hddwAIXbKZo" data-fancybox="gallery"
-                    data-caption="">
-                    <i class="fa-sharp fa-solid fa-play"></i>
-                </a>
-            </div>
-            <div class="content">
-                <div class="title">Experience the Quality Behind Our Service</div>
-            </div>
-        </div>
-    </section>
-    <!-- end video-section -->
+    <script type="application/ld+json">
+    {!! json_encode([
+        '@context' => 'https://schema.org',
+        '@type' => 'FAQPage',
+        'mainEntity' => collect($homeFaqs)->map(fn ($faq) => [
+            '@type' => 'Question',
+            'name' => $faq['q'],
+            'acceptedAnswer' => [
+                '@type' => 'Answer',
+                'text' => $faq['a'],
+            ],
+        ])->all(),
+    ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
+    </script>
+    <!-- end faq-schema -->
 
     <!-- start blog-section -->
     <section class="blog-section">
@@ -1025,7 +809,7 @@
             <div class="sec-title-box">
                 <div class="sec-title">
                     <div class="h6 sub-title">Our Blog</div>
-                    <div class="h2 title">Check out latest <br>news <span>update & articles</span></div>
+                    <h2 class="title">Helpful Moving <br>Guides <span>&amp; Articles</span></h2>
                 </div>
                 <a href="{{ route('blogs.index') }}" class="theme-btn btn-style-three">See All Article<i
                         class="fa-light fa-arrow-up-right"></i></a>
@@ -1038,5 +822,17 @@
         </div>
     </section>
     <!-- end blog-section -->
+
+    <!-- start cta-section -->
+    <section class="cta-section">
+        <div class="outer-box">
+            <div class="content">
+                <div class="h2 title">Ready to plan your move?</div>
+                <a href="{{ route('contact-us') }}" class="theme-btn btn-style-four">Get a Moving Quote<i
+                        class="fa-light fa-arrow-up-right"></i></a>
+            </div>
+        </div>
+    </section>
+    <!-- end cta-section -->
 
 @endsection

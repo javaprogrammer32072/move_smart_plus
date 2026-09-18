@@ -9,7 +9,7 @@
     style="background-image: url(images/resource/page-title.png);opacity: 0.85;background-color: var(--theme-color-lighter);">
     <div class="auto-container">
       <div class="title-outer text-center">
-        <div class="h1 title">Contact</div>
+        <h1 class="title">Contact</h1>
         <ul class="page-breadcrumb">
           <li><a href="{{url('')}}">Home</a></li>
           <li>Contact</li>

@@ -9,9 +9,6 @@
     <meta name="theme-color" content="#0F52BA">
     <meta http-equiv="content-language" content="en">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:url" content="https://movesmartplus.com/">
-    <meta property="og:site_name" content="MoveSmartPlus">
-    <meta property="og:image" content="{{public_url('images/smart-move-plus.png')}}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_IN">
@@ -86,10 +83,17 @@
       "url":"https://movesmartplus.com",
       "logo":"https://movesmartplus.com/public/images/logo.png",
       "image":"https://movesmartplus.com/public/images/og-image.jpg",
-      "telephone":"+91- 6204847381",
+      "telephone":"+91-7070784447",
       "email":"info@movesmartplus.com",
-      "description":"Professional packers and movers providing house shifting, office relocation, bike transport and car transport across India.",
-      "areaServed":"India",
+      "description":"Professional packers and movers providing house shifting, office relocation, bike transport and car transport across Bihar and Jharkhand.",
+      "address":{
+        "@type":"PostalAddress",
+        "streetAddress":"Gaura Chowki, Nathnagar Circle",
+        "addressLocality":"Bhagalpur",
+        "addressRegion":"Bihar",
+        "addressCountry":"IN"
+      },
+      "areaServed":["Bihar","Jharkhand"],
       "priceRange":"₹₹"
     }
     </script>
