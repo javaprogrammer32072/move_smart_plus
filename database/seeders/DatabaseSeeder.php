@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             CitySeeder::class,
             InventoryCategorySeeder::class,
             InventoryItemSeeder::class,
+            FaqSeeder::class,
         ]);
     }
 }

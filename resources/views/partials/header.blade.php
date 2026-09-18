@@ -37,8 +37,10 @@
                             </li>
                             <li class="dropdown"><a href="#">Pages</a>
                                 <ul>
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Faq</a></li>
+                                    <li><a href="{{ route('about') }}">About Us</a></li>
+                                    <li><a href="{{ route('mission') }}">Our Mission</a></li>
+                                    <li><a href="{{ route('timeline') }}">Timeline</a></li>
+                                    <li><a href="{{ route('help-center') }}">Faq</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown"><a href="{{ url('/services') }}">Our Services</a>

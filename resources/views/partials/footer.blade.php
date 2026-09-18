@@ -8,14 +8,11 @@
                 <div class="footer-column col-lg-4 col-md-6">
                     <div class="footer-widget subscribe-widget">
                         <div class="h3 widget-title">Subscribe to Our Newsletter</div>
-                        <div class="form-clt">
-                            <input type="email" placeholder="Enter email" required="">
-                            <button class="theme-btn btn-style-five" type="submit">Subscribe</button>
-                        </div>
-                        <form class="check-box">
+                        <x-newsletter-form id="footer" />
+                        <div class="check-box">
                             <input type="checkbox" id="agree" name="agree" value="agree">
-                            <label for="agree"> I agree to the <a href="#">privacy policy.</a></label>
-                        </form>
+                            <label for="agree"> I agree to the <a href="{{ route('privacy-policy') }}">privacy policy.</a></label>
+                        </div>
                     </div>
                 </div>
                 <!-- Footer Column -->
@@ -24,11 +21,11 @@
                         <div class="h5 widget-title">Company</div>
                         <div class="widget-content">
                             <ul class="user-links">
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Our Mission</a></li>
+                                <li><a href="{{ route('about') }}">About</a></li>
+                                <li><a href="{{ route('mission') }}">Our Mission</a></li>
                                 <li><a href="#">Our Blogs</a></li>
-                                <li><a href="#">Help Center</a></li>
-                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="{{ route('help-center') }}">Help Center</a></li>
+                                <li><a href="{{ route('contact-us') }}">Contact Us</a></li>
                             </ul>
                         </div>
                     </div>
@@ -39,11 +36,9 @@
                         <div class="h5 widget-title">Service</div>
                         <div class="widget-content">
                             <ul class="user-links">
-                                <li><a href="#">Residential Moving</a></li>
-                                <li><a href="#">Furniture Assembly</a></li>
-                                <li><a href="#">Local Moving</a></li>
-                                <li><a href="#">Long-Distance Moving</a></li>
-                                <li><a href="#">Packing & Unpacking</a></li>
+                                @foreach (service_nav_links() as $link)
+                                    <li><a href="{{ route($link['route']) }}">{{ $link['label'] }}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -66,5 +61,28 @@
             </div>
         </div>
     </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <div class="auto-container">
+            <div class="inner-container">
+                <div class="upper-box">
+                    <ul class="footer-nav">
+                        <li><a href="{{ route('about') }}">About Us</a></li>
+                        <li><a href="{{ route('timeline') }}">Timeline</a></li>
+                        <li><a href="{{ route('mission') }}">Our Mission</a></li>
+                        <li><a href="{{ route('help-center') }}">Help Center</a></li>
+                        <li><a href="{{ route('newsletter') }}">Newsletter</a></li>
+                        <li><a href="{{ route('privacy-policy') }}">Privacy Policy</a></li>
+                        <li><a href="{{ route('terms') }}">Terms &amp; Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="lower-box">
+                    <div class="copyright-text">&copy; {{ date('Y') }} MoveSmartPlus. All rights reserved.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Footer Bottom -->
 </footer>
 <!--End Main Footer -->

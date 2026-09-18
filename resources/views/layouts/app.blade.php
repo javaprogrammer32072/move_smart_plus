@@ -8,7 +8,7 @@
     <meta name="author" content="MoveSmartPlus">
     <meta name="theme-color" content="#0F52BA">
     <meta http-equiv="content-language" content="en">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:url" content="https://movesmartplus.com/">
     <meta property="og:site_name" content="MoveSmartPlus">
     <meta property="og:image" content="{{public_url('images/smart-move-plus.png')}}">

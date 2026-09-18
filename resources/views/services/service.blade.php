@@ -160,7 +160,7 @@
                             <li>Doorstep Delivery</li>
                         </ul>
 
-                        <a href="{{ url('/services/home-shifting') }}">Learn More →</a>
+                        <a href="{{ route('services.home-shifting') }}">Learn More →</a>
 
                     </div>
                 </div>
@@ -193,7 +193,7 @@
                             <li>Weekend Relocation</li>
                         </ul>
 
-                        <a href="#">Learn More →</a>
+                        <a href="{{ route('services.office-relocation') }}">Learn More →</a>
 
                     </div>
 
@@ -228,7 +228,7 @@
                             <li>Affordable Plans</li>
                         </ul>
 
-                        <a href="#">Learn More →</a>
+                        <a href="{{ route('services.warehouse-storage') }}">Learn More →</a>
 
                     </div>
 
@@ -262,7 +262,7 @@
                             <li>Affordable Pricing</li>
                         </ul>
 
-                        <a href="#">Learn More →</a>
+                        <a href="{{ route('services.local-moving') }}">Learn More →</a>
 
                     </div>
 
@@ -296,7 +296,7 @@
                             <li>Live Tracking</li>
                         </ul>
 
-                        <a href="#">Learn More →</a>
+                        <a href="{{ route('services.car-transportation') }}">Learn More →</a>
 
                     </div>
 
@@ -318,10 +318,10 @@
                             <i class="flaticon-delivery"></i>
                         </div>
 
-                        <h4>Bike Transport</h4>
+                        <h4>Bike Transportation</h4>
 
                         <p>
-                            Damage-free bike transportation across India.
+                            Careful bike transportation across India.
                         </p>
 
                         <ul>
@@ -330,7 +330,7 @@
                             <li>On-time Delivery</li>
                         </ul>
 
-                        <a href="#">Learn More →</a>
+                        <a href="{{ route('services.bike-transportation') }}">Learn More →</a>
 
                     </div>
 
